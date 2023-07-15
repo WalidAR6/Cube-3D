@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 19:34:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/13 18:17:07 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/14 11:34:38 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,5 @@ char	*get_next_line(int fd)
 	}
 	line = before_newline(backup);
 	backup = after_newline(backup);
-	return (free(buffer), line);
+	return (line);
 }

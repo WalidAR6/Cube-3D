@@ -14,7 +14,9 @@ LIBFT_SRC = utils/libft/ft_atoi.c\
 
 GNL_SRC = utils/get_next_line/get_next_line.c
 
-SRC = src/cube.c
+SRC = src/cube.c\
+		src/raycast.c\
+		src/init_val.c
 
 LIBFT_OBJ = $(LIBFT_SRC:.c=.o)
 
@@ -25,10 +27,10 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 %.o: %.c inc/cube.h inc/get_next_line.h inc/libft.h
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(FLAGS) -Imlx -c $< -o $@
 
 $(NAME): $(OBJ) $(GNL_OBJ) $(LIBFT_OBJ)
-	$(CC) $(FLAGS) $(OBJ) $(GNL) $(LIBFT) -o $(NAME)
+	$(CC) $(FLAGS) $(OBJ) $(GNL_OBJ) $(LIBFT_OBJ) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 clean:
 	rm -f $(OBJ) $(GNL_OBJ) $(LIBFT_OBJ)
