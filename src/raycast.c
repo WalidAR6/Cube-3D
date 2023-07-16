@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 09:43:02 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/15 17:12:29 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/16 16:50:43 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ void	draw_square1(t_data *data, int x, int y, int color)
 	int j;
 	
 	i = 0;
-	while (i < 15)
+	while (i < 10)
 	{
 		j = 0;
-		while (j < 15)
+		while (j < 10)
 		{
 			my_mlx_pixel_put(data, i + y, j + x, color);
 			j++;
@@ -78,9 +78,9 @@ void	draw_map(t_win *vars, t_data *data)
 		while (vars->map[i][j])
 		{
 			if (vars->map[i][j] == '1')
-				draw_square(data, i*50, j*50, 0x01529B);
+				draw_square(data, i*50, j*50, WALL_COLOR);
 			else
-				draw_square(data, i*50, j*50, 0xcccccc);
+				draw_square(data, i*50, j*50, GROUND_COLOR);
 			j++;
 		}
 		i++;
@@ -101,8 +101,8 @@ void	draw_player(t_win *vars, t_data *data)
 		{
 			if (vars->map[i][j] == 'N')
 			{
-				printf("player pos [%d][%d]\n",vars->y_player, vars->x_player);
-				draw_square1(data, i * 50, j * 50, 0x000000);
+				printf("player pos [%d][%d]\n",vars->player->y_player, vars->player->x_player);
+				draw_square1(data, vars->player->y_player, vars->player->x_player, PLAYER_COLOR);
 			}
 			j++;
 		}
@@ -112,66 +112,73 @@ void	draw_player(t_win *vars, t_data *data)
 
 void	move_down(t_win	*vars)
 {
-	if (vars->map[vars->y_player + 1][vars->x_player] != '1')
-	{
-		vars->map[vars->y_player + 1][vars->x_player] = 'N';
-		vars->map[vars->y_player][vars->x_player] = '0';
-		vars->y_player = vars->y_player + 1;
-	}
+	int i;
+	int	j;
+	
+	i = (vars->player->y_player + 10) / 50;
+	j = vars->player->x_player / 50;
+
+	if (vars->map[i][j] != '1')
+		vars->player->y_player += 2;
 }
 void	move_up(t_win	*vars)
 {
-	if (vars->map[vars->y_player - 1][vars->x_player] != '1')
-	{
-		vars->map[vars->y_player - 1][vars->x_player] = 'N';
-		vars->map[vars->y_player][vars->x_player] = '0';
-		vars->y_player = vars->y_player - 1;
-	}
+	int i;
+	int	j;
+	
+	i = (vars->player->y_player - 2) / 50;
+	j = vars->player->x_player / 50;
+
+	if (vars->map[i][j] != '1')
+		vars->player->y_player -= 2;
 }
 
 void	move_right(t_win *vars)
 {
-	if (vars->map[vars->y_player][vars->x_player + 1] != '1')
-	{
-		vars->map[vars->y_player][vars->x_player + 1] = 'N';
-		vars->map[vars->y_player][vars->x_player] = '0';
-		vars->x_player = vars->x_player + 1;
-	}
+	int i;
+	int	j;
+	
+	i = vars->player->y_player / 50;
+	j = (vars->player->x_player + 10) / 50;
+
+	if (vars->map[i][j] != '1')
+		vars->player->x_player += 2;
 }
 
 void	move_left(t_win	*vars)
 {
-	if (vars->map[vars->y_player][vars->x_player - 1] != '1')
-	{
-		vars->map[vars->y_player][vars->x_player - 1] = 'N';
-		vars->map[vars->y_player][vars->x_player] = '0';
-		vars->x_player = vars->x_player - 1;
-	}
+	int i;
+	int	j;
+	
+	i = vars->player->y_player / 50;
+	j = (vars->player->x_player - 2) / 50;
+
+	if (vars->map[i][j] != '1')
+		vars->player->x_player -= 2;
 }
 
-void	get_player_pos(t_win *vars)
+void	get_player_pos(char **map, t_player *vars)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (vars->map[i])
+	while (map[i])
 	{
 		j = 1;
-		while (vars->map[i][j])
+		while (map[i][j])
 		{
-			if (vars->map[i][j] == 'N')
+			if (map[i][j] == 'N')
 			{
-				vars->x_player = j;
-				vars->y_player = i;
+				vars->x_player = j*50 + 20;
+				vars->y_player = i*50 + 20;
 				break;
 			}
 			j++;
 		}
 		i++;
-	}	
+	}
 }
-
 
 int		key_hook(int keycode, t_win *vars)
 {
@@ -192,8 +199,7 @@ int		key_hook(int keycode, t_win *vars)
 
 void	raycast(t_win *vars, t_data *data)
 {
-	get_player_pos(vars);
-	vars->mlx_win = mlx_new_window(vars->mlx, ft_strlen(vars->map[0])*50, 11*50, "Cube3D");
+	vars->mlx_win = mlx_new_window(vars->mlx, MAP_WIDTH, MAP_HEIGHT, "Cube3D");
 	data->img = mlx_new_image(vars->mlx, ft_strlen(vars->map[0])*50, 11*50);
 	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel, &data->line_length,
 										&data->endian);
