@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/16 15:19:49 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/18 18:47:59 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,13 @@
 # define KEY_LEFT 0
 # define KEY_RIGHT 2
 # define KEY_DOWN 1
+# define ARROW_UP 126
+# define ARROW_DOWN 125
+# define ARROW_RIGHT 124
+# define ARROW_LEFT 123
 # define KEY_ESC 53
+
+# define PI 3.14159265359
 
 typedef struct	s_data
 {
@@ -46,9 +52,9 @@ typedef struct	s_data
 
 typedef struct s_player
 {
-	int		x_player;
-	int		y_player;
-	double	view_angle;
+	double		x_player;
+	double		y_player;
+	double		view_angle;
 }				t_player;
 
 typedef struct s_win
@@ -57,6 +63,8 @@ typedef struct s_win
 	void		*mlx_win;
 	char		**map;
 	char		*line;
+	int			*key_value;
+	char		*key_tab;
 	t_data		*data;
 	t_player	*player;
 }				t_win;

@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:48:21 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/16 14:53:26 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:29:34 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*get_linef(void)
 void	init_player(char **map,t_player *vars)
 {
 	get_player_pos(map, vars);
-	vars->view_angle = 0;
+	vars->view_angle = 90;
 }
 
 void	init(t_win *vars, t_data *data)
@@ -45,7 +45,7 @@ void	init(t_win *vars, t_data *data)
 	vars->map = ft_split(vars->line, '\n');
 	vars->data = data;
 	vars->player = malloc(sizeof(t_player *));
-	if (!vars)
+	if (!vars->player)
 		exit (1);
 	init_player(vars->map, vars->player);
 }
