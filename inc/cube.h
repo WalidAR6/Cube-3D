@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/18 18:47:59 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/20 14:45:03 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@
 
 # define PI 3.14159265359
 
+# define true 1
+# define false 0
+
 typedef struct	s_data
 {
 	void	*img;
@@ -63,8 +66,9 @@ typedef struct s_win
 	void		*mlx_win;
 	char		**map;
 	char		*line;
-	int			*key_value;
-	char		*key_tab;
+	int			forw_back;
+	int			left_right;
+	int			r_left_right;
 	t_data		*data;
 	t_player	*player;
 }				t_win;

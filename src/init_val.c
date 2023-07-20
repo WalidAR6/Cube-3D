@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:48:21 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/18 15:29:34 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/20 14:46:04 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,14 @@ void	init_player(char **map,t_player *vars)
 
 void	init(t_win *vars, t_data *data)
 {
+	vars->mlx = mlx_init();
+	vars->mlx_win = mlx_new_window(vars->mlx, MAP_WIDTH, MAP_HEIGHT, "Cube3D");
 	vars->line = get_linef();
 	vars->map = ft_split(vars->line, '\n');
 	vars->data = data;
+	vars->forw_back = 0;
+	vars->left_right = 0;
+	vars->r_left_right = 0;
 	vars->player = malloc(sizeof(t_player *));
 	if (!vars->player)
 		exit (1);
