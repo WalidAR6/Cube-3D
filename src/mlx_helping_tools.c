@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_heping_tools.c                                 :+:      :+:    :+:   */
+/*   mlx_helping_tools.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 11:32:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/21 11:33:15 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/21 11:47:58 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	get_player_pos(char **map, t_player *vars)
 		{
 			if (map[i][j] == 'N')
 			{
-				vars->x_player = j*50 + 25;
-				vars->y_player = i*50 + 25;
+				vars->x_player = j * 50 + 25;
+				vars->y_player = i * 50 + 25;
 				break;
 			}
 			j++;

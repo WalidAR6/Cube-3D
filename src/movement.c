@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 10:54:48 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/21 10:57:04 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/21 11:48:58 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	move_down(t_win	*vars)
 {
 	double i;
 	double	j;
-	
+
 	i = vars->player->y_player - 5 * cos(vars->player->view_angle * PI / 180);
 	j = vars->player->x_player - 5 * sin(vars->player->view_angle * PI / 180);
 	if (vars->map[(int)i / 50][(int)j / 50] != '1')
@@ -29,7 +29,7 @@ void	move_up(t_win	*vars)
 {
 	double i;
 	double j;
-	
+
 	i = vars->player->y_player + 5 * cos(vars->player->view_angle * PI / 180);
 	j = vars->player->x_player + 5 * sin(vars->player->view_angle * PI / 180);
 	if (vars->map[(int)i / 50][(int)j / 50] != '1')
@@ -43,7 +43,7 @@ void	move_right(t_win *vars)
 {
 	double i;
 	double j;
-	
+
 	i = vars->player->y_player + 5 * cos((90 - vars->player->view_angle) * PI / 180);
 	j = vars->player->x_player - 5 * sin((90 - vars->player->view_angle) * PI / 180);
 	if (vars->map[(int)i / 50][(int)j / 50] != '1')
@@ -58,7 +58,7 @@ void	move_left(t_win	*vars)
 {	
 	double i;
 	double j;
-	
+
 	i = vars->player->y_player - 5 * cos((90 - vars->player->view_angle) * PI / 180);
 	j = vars->player->x_player + 5 * sin((90 - vars->player->view_angle) * PI / 180);
 	if (vars->map[(int)i / 50][(int)j / 50] != '1')

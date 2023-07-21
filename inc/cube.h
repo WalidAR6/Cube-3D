@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/21 11:41:10 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/21 11:47:24 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@
 
 # define true 1
 # define false 0
+
+# define REDIUS 5
 
 typedef struct	s_data
 {

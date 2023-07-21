@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 10:52:04 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/21 11:27:10 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/21 11:46:46 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,13 @@ void	draw_cercle(t_data *data, int y, int x, int color)
 	angl = 0;
 	while (angl < 360)
 	{
-		x1 = 5 * cos(angl * PI / 180);
-		y1 = 5 * sin(angl * PI / 180);
+		x1 = REDIUS * cos(angl * PI / 180);
+		y1 = REDIUS * sin(angl * PI / 180);
 		l = 0;
 		while (l < 4)
 		{
-			my_mlx_pixel_put(data, (l * x1 / 5) + x, (l * y1 / 5) + y, color);
+			my_mlx_pixel_put(data, (l * x1 / REDIUS) + x,
+						(l * y1 / REDIUS) + y, color);
 			l++;
 		}
 		angl += 1;
@@ -64,9 +65,9 @@ void	draw_map(t_win *vars, t_data *data)
 		while (vars->map[i][j])
 		{
 			if (vars->map[i][j] == '1')
-				draw_square(data, i*50, j*50, WALL_COLOR);
+				draw_square(data, i * 50, j * 50, WALL_COLOR);
 			else
-				draw_square(data, i*50, j*50, GROUND_COLOR);
+				draw_square(data, i * 50, j * 50, GROUND_COLOR);
 			j++;
 		}
 		i++;
@@ -87,7 +88,7 @@ void	draw_player(t_win *vars, t_data *data)
 		{
 			if (vars->map[i][j] == 'N')
 				draw_cercle(data, vars->player->y_player,
-					vars->player->x_player, PLAYER_COLOR);
+						vars->player->x_player, PLAYER_COLOR);
 			j++;
 		}
 		i++;
