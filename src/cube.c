@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:04 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/19 08:16:12 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/21 11:42:01 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int ac, char **av)
 	t_data	data;
 
 	init(&vars, &data);
-	raycast(&vars, &data);
+	start_game(&vars, &data);
 	mlx_loop(vars.mlx);
 	return (0);
 }

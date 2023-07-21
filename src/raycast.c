@@ -6,13 +6,13 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 09:43:02 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/21 11:38:14 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/21 11:42:23 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cube.h"
 
-void	raycast(t_win *vars, t_data *data)
+void	start_game(t_win *vars, t_data *data)
 {
 	data->img = mlx_new_image(vars->mlx, ft_strlen(vars->map[0]) * 50, 11 * 50);
 	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel,
