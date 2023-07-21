@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 09:43:02 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/21 11:42:23 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/21 13:15:28 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	start_game(t_win *vars, t_data *data)
 	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel,
 										&data->line_length,
 										&data->endian);
+	// print_map(vars);
 	draw_map(vars, vars->data);
 	draw_player(vars, vars->data);
 	draw_line(vars, vars->data);

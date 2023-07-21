@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strjoin_gnl.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/13 18:17:59 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/21 13:43:25 by waraissi         ###   ########.fr       */
+/*   Created: 2023/07/21 13:42:41 by waraissi          #+#    #+#             */
+/*   Updated: 2023/07/21 13:43:15 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "../../inc/libft.h"
 
-# include "cube.h"
+char	*ft_strjoin_gnl(char *s1, char *s2)
+{
+	size_t	i;
+	size_t	j;
+	char	*p;
 
-char	**ft_split(char *s, char c);
-int		ft_atoi(const char *str);
-char	*ft_strjoin(char *s1, char *s2);
-char	*ft_strdup(char *str);
-size_t	ft_strlcpy(char *dst, char *src, size_t n);
-size_t	ft_strlen(char *str);
-char	*ft_substr(char *s, unsigned int start, size_t len);
-char	*ft_strjoin_gnl(char *s1, char *s2);
-
-#endif
+	i = 0;
+	j = 0;
+	if (!s2)
+		return (NULL);
+	p = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!p)
+		return (NULL);
+	while (s1[i])
+	{
+		p[i] = s1[i];
+		i++;
+	}
+	while (s2[j])
+	{
+		p[i + j] = s2[j];
+		j++;
+	}
+	p[i + j] = 0;
+	return (free(s1), s1 = NULL, p);
+}
