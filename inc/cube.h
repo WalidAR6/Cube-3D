@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/20 14:45:03 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/21 11:33:29 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,22 @@ typedef struct s_win
 void	raycast(t_win *vars, t_data *data);
 void	init(t_win *vars, t_data *data);
 void	get_player_pos(char **map, t_player *vars);
+void	draw_square(t_data *data, int x, int y, int color);
+void	draw_cercle(t_data *data, int y, int x, int color);
+void	draw_map(t_win *vars, t_data *data);
+void	draw_player(t_win *vars, t_data *data);
+void	draw_line(t_win *vars, t_data *data);
+void	move_down(t_win	*vars);
+void	move_up(t_win	*vars);
+void	move_right(t_win *vars);
+void	move_left(t_win	*vars);
+void	rotate(t_win *vars, int flag);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int		key_hook(int keycode, t_win *vars);
+int		key_release(int keycode, t_win *vars);
+int		quit_game(int keycode, t_win *vars);
+void	move_player(t_win *vars);
+int		hooks(t_win *vars);
+void	print_map(t_win *vars);
 
 #endif

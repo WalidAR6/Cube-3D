@@ -16,6 +16,10 @@ GNL_SRC = utils/get_next_line/get_next_line.c
 
 SRC = src/cube.c\
 		src/raycast.c\
+		src/drawing.c\
+		src/movement.c\
+		src/key_hooks.c\
+		src/mlx_helping_tools.c\
 		src/init_val.c
 
 LIBFT_OBJ = $(LIBFT_SRC:.c=.o)
