@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 10:52:04 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/21 13:57:34 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:05:05 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	draw_map(t_win *vars, t_data *data)
 		j = 0;
 		while (vars->map[i][j])
 		{
-			if (vars->map[i][j] == '1')
+			if (vars->map[i][j] == '1' || vars->map[i][j] == ' ')
 				draw_square(data, i * 50, j * 50, WALL_COLOR);
 			else
 				draw_square(data, i * 50, j * 50, GROUND_COLOR);
@@ -100,7 +100,7 @@ void	draw_line(t_win *vars, t_data *data)
 	int i;
 
 	i = 0;
-	while (i < 15)
+	while (i < 20)
 	{
 		my_mlx_pixel_put(data,
 			vars->player->x_player + i * sin(vars->player->view_angle * PI / 180),

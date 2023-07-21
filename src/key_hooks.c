@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 11:28:14 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/21 11:32:09 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/21 17:01:45 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	move_player(t_win *vars)
 int		hooks(t_win *vars)
 {
 	mlx_destroy_image(vars->mlx, vars->data->img);
-	vars->data->img = mlx_new_image(vars->mlx, ft_strlen(vars->map[0])*50, 11*50);
+	vars->data->img = mlx_new_image(vars->mlx, ft_strlen(vars->map[0])*50, 14*50);
 	vars->data->addr = mlx_get_data_addr(vars->data->img,
 											&vars->data->bits_per_pixel,
 											&vars->data->line_length,
