@@ -16,7 +16,7 @@ LIBFT_SRC = utils/libft/ft_atoi.c\
 GNL_SRC = utils/get_next_line/get_next_line.c
 
 SRC = src/cube.c\
-		src/raycast.c\
+		src/start_game.c\
 		src/drawing.c\
 		src/movement.c\
 		src/key_hooks.c\
