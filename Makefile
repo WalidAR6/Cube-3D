@@ -21,6 +21,7 @@ SRC = src/cube.c\
 		src/movement.c\
 		src/key_hooks.c\
 		src/mlx_helping_tools.c\
+		src/ray_casting.c\
 		src/init_val.c
 
 LIBFT_OBJ = $(LIBFT_SRC:.c=.o)

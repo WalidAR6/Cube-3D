@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/21 13:19:33 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/24 10:34:44 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ typedef struct s_win
 }				t_win;
 
 void	start_game(t_win *vars, t_data *data);
-void	init(t_win *vars, t_data *data);
+void	init(t_win *vars);
 void	get_player_pos(char **map, t_player *vars);
 void	draw_square(t_data *data, int x, int y, int color);
 void	draw_cercle(t_data *data, int y, int x, int color);
@@ -93,7 +93,9 @@ int		key_hook(int keycode, t_win *vars);
 int		key_release(int keycode, t_win *vars);
 int		quit_game(int keycode, t_win *vars);
 void	move_player(t_win *vars);
+void	drawing_all(t_win *vars);
 int		hooks(t_win *vars);
 void	print_map(t_win *vars);
+void	start_ray_casting(t_win *vars, t_data *data);
 
 #endif

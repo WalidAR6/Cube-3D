@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 11:28:14 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/21 17:01:45 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/24 10:42:39 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,8 @@ int		hooks(t_win *vars)
 											&vars->data->bits_per_pixel,
 											&vars->data->line_length,
 											&vars->data->endian);
+	drawing_all(vars);
 	move_player(vars);
-	draw_map(vars, vars->data);
-	draw_player(vars, vars->data);
-	draw_line(vars, vars->data);
 	mlx_put_image_to_window(vars->mlx, vars->mlx_win, vars->data->img, 0, 0);
 	return (0);
 }

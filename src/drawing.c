@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 10:52:04 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/21 17:05:05 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/24 12:59:04 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,11 +100,11 @@ void	draw_line(t_win *vars, t_data *data)
 	int i;
 
 	i = 0;
-	while (i < 20)
+	while (i < 22)
 	{
 		my_mlx_pixel_put(data,
-			vars->player->x_player + i * sin(vars->player->view_angle * PI / 180),
-			vars->player->y_player + i * cos(vars->player->view_angle * PI / 180),
+			vars->player->x_player + i * cos(vars->player->view_angle * PI / 180),
+			vars->player->y_player + i * sin(vars->player->view_angle * PI / 180),
 			PLAYER_COLOR);
 		i++;
 	}
