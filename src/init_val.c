@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:48:21 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/24 19:00:26 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/25 21:26:43 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,17 @@ char	*get_linef(void)
 void	init_player(char **map,t_player *vars)
 {
 	get_player_pos(map, vars);
-	vars->view_angle = 270;
+	vars->view_angle = 300;
+}
+
+void	init_dda(t_win *vars)
+{
+	vars->dda_params->px = 0;	
+	vars->dda_params->py = 0;
+	vars->dda_params->dx = 0;
+	vars->dda_params->dy = 0;
+	vars->dda_params->x_inc = 0;
+	vars->dda_params->y_inc = 0;
 }
 
 void	init(t_win *vars)
@@ -50,7 +60,9 @@ void	init(t_win *vars)
 	vars->r_left_right = 0;
 	vars->data = malloc(sizeof(t_data));
 	vars->player = malloc(sizeof(t_player));
-	if (!vars->player || !vars->data)
+	vars->dda_params = malloc(sizeof(t_dda));
+	if (!vars->player || !vars->data || !vars->dda_params)
 		exit (1);
 	init_player(vars->map, vars->player);
+	init_dda(vars);
 }

@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/24 10:34:44 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/25 21:28:25 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,16 @@ typedef struct s_player
 	double		view_angle;
 }				t_player;
 
+typedef struct s_dda
+{
+	double	px;
+	double	py;
+	double	dx;
+	double	dy;
+	double	x_inc;
+	double	y_inc;
+}				t_dda;
+
 typedef struct s_win
 {
 	void		*mlx;
@@ -71,6 +81,7 @@ typedef struct s_win
 	int			forw_back;
 	int			left_right;
 	int			r_left_right;
+	t_dda		*dda_params;
 	t_data		*data;
 	t_player	*player;
 }				t_win;
@@ -97,5 +108,6 @@ void	drawing_all(t_win *vars);
 int		hooks(t_win *vars);
 void	print_map(t_win *vars);
 void	start_ray_casting(t_win *vars, t_data *data);
+void	dda_line(t_data *data, t_win *vars, int x, int y);
 
 #endif
