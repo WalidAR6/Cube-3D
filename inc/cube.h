@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/26 15:08:31 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/26 23:18:12 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@
 # define false 0
 
 # define REDIUS 5
+# define FOV 60
 
 typedef struct	s_data
 {
