@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 10:54:48 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/24 18:01:39 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/26 15:47:22 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,13 @@ void	rotate(t_win *vars, int flag)
 {
 	if (flag == -1)
 	{
-		vars->player->view_angle -= 1;
+		vars->player->view_angle -= 2;
 		if (vars->player->view_angle <= 0.0)
 			vars->player->view_angle = 360;	
 	}
 	else
 	{
-		vars->player->view_angle += 1;
+		vars->player->view_angle += 2;
 		if (vars->player->view_angle > 360)
 			vars->player->view_angle = 0.0;
 	}
