@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 10:17:00 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/27 00:47:25 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/27 15:45:18 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,9 @@ double	intersection_with_horizontal(t_win *vars, double i)
 
 	angle = vars->player->view_angle + i;
 	if (angle > 360)
-		angle = angle - 360;
+		angle = 360 - angle;
 	else if (angle < 0)
-		angle = 360 - i;
-	printf("%f\n",angle);
+		angle = angle + 360;
 	t = tan(angle * PI / 180);
 	if (looking_direction(vars, i) == -1)
 	{
@@ -69,11 +68,10 @@ double	intersection_with_vertical(t_win *vars, double i)
 	double angle;
 
 	angle = vars->player->view_angle + i;
-	if (angle > 360)
+	if (angle >= 360)
 		angle = angle - 360;
 	else if (angle < 0)
-		angle = 360 - angle;
-	printf("%f\n",angle);
+		angle = angle + 360;
 	t = tan(angle * PI / 180);
 	if (looking_direction_2(vars, i) == -1)
 	{
@@ -109,7 +107,7 @@ void	start_ray_casting(t_win *vars, t_data *data)
 	double	angle;
 	
 	i = 0;
-	angle = 0.3;
+	angle = 0.05;
 	n = -30;
 	while (i < FOV)
 	{
