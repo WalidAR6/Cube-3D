@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 10:17:00 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/27 15:45:18 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/07/27 21:14:36 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,27 @@
 
 int	looking_direction(t_win *vars, double i)
 {
-	if ((vars->player->view_angle + i) >= 0 && (vars->player->view_angle + i) <= 180)
+	double angle;
+
+	angle = vars->player->view_angle + i;
+	if (angle >= 360)
+		angle = angle - 360;
+	else if (angle < 0)
+		angle = 360 - fabs(angle);
+	if ((angle) >= 0 && (angle) <= 180)
 		return (-1);
 	return (1);
 }
 
 int	looking_direction_2(t_win *vars, double i)
 {
-	if ((vars->player->view_angle + i) >= 90 && (vars->player->view_angle + i) <= 270)
+	double angle;
+
+	angle = vars->player->view_angle + i;
+	if (angle >= 360)
+		angle = angle - 360;
+		
+	if ((angle) >= 90 && (angle) <= 270)
 		return (1);
 	return (-1);
 }
@@ -32,10 +45,10 @@ double	intersection_with_horizontal(t_win *vars, double i)
 	double angle;
 
 	angle = vars->player->view_angle + i;
-	if (angle > 360)
-		angle = 360 - angle;
+	if (angle >= 360)
+		angle = angle - 360;
 	else if (angle < 0)
-		angle = angle + 360;
+		angle = 360 - fabs(angle);
 	t = tan(angle * PI / 180);
 	if (looking_direction(vars, i) == -1)
 	{
@@ -71,7 +84,7 @@ double	intersection_with_vertical(t_win *vars, double i)
 	if (angle >= 360)
 		angle = angle - 360;
 	else if (angle < 0)
-		angle = angle + 360;
+		angle = 360 - fabs(angle);
 	t = tan(angle * PI / 180);
 	if (looking_direction_2(vars, i) == -1)
 	{
