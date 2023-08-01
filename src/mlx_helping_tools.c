@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 11:32:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/25 21:28:13 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/01 14:37:36 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	get_player_pos(char **map, t_player *vars)
 	}
 }
 
-void	dda_line(t_data *data, t_win *vars, int x, int y)
+void	dda_line(t_win *vars, int x, int y, int color)
 {
 	int		i;
 	int		step;
@@ -71,7 +71,7 @@ void	dda_line(t_data *data, t_win *vars, int x, int y)
 	vars->dda_params->y_inc = vars->dda_params->dy/step;
 	while (i < step)
 	{
-		my_mlx_pixel_put(data, vars->dda_params->px, vars->dda_params->py, 0xFF0000);
+		my_mlx_pixel_put(vars->data, vars->dda_params->px, vars->dda_params->py, color);
 		vars->dda_params->px += vars->dda_params->x_inc;
 		vars->dda_params->py += vars->dda_params->y_inc;
 		i++;

@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 10:17:00 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/01 02:51:02 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/01 20:40:42 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ double	intersection_with_vertical(t_win *vars, double i)
 	return (sqrt(pow(vars->player->x_player - vars->r_cast->x_v, 2) + pow(vars->player->y_player - vars->r_cast->y_v, 2)));
 }
 
-void	start_ray_casting(t_win *vars, t_data *data)
+void	start_ray_casting(t_win *vars)
 {
 	double	h_i;
 	double	v_i;
@@ -127,9 +127,15 @@ void	start_ray_casting(t_win *vars, t_data *data)
 		h_i = intersection_with_horizontal(vars, n);
 		v_i = intersection_with_vertical(vars, n);
 		if (h_i < v_i)
-			dda_line(data, vars, vars->r_cast->x_h, vars->r_cast->y_h);
+		{
+			vars->dis = h_i;
+			dda_line(vars, vars->r_cast->x_h, vars->r_cast->y_h, 0xFF0000);
+		}
 		else if (h_i > v_i)
-			dda_line(data, vars, vars->r_cast->x_v, vars->r_cast->y_v);
+		{
+			vars->dis = v_i;
+			dda_line(vars, vars->r_cast->x_v, vars->r_cast->y_v, 0xFF0000);
+		}
 		
 		i += angle;
 		n += angle;

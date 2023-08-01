@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/26 23:18:12 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/01 20:39:30 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ typedef struct s_win
 	int			forw_back;
 	int			left_right;
 	int			r_left_right;
+	int			m_step;
+	double		dis;
 	t_ray_cast	*r_cast;
 	t_dda		*dda_params;
 	t_data		*data;
@@ -102,9 +104,9 @@ void	start_game(t_win *vars, t_data *data);
 void	init(t_win *vars);
 void	get_player_pos(char **map, t_player *vars);
 void	draw_square(t_data *data, int x, int y, int color);
-void	draw_cercle(t_data *data, int y, int x, int color);
+void	draw_cercle(t_win *vars, int color);
 void	draw_map(t_win *vars, t_data *data);
-void	draw_player(t_win *vars, t_data *data);
+void	draw_player(t_win *vars);
 void	draw_line(t_win *vars, t_data *data);
 void	move_down(t_win	*vars);
 void	move_up(t_win	*vars);
@@ -119,7 +121,7 @@ void	move_player(t_win *vars);
 void	drawing_all(t_win *vars);
 int		hooks(t_win *vars);
 void	print_map(t_win *vars);
-void	start_ray_casting(t_win *vars, t_data *data);
-void	dda_line(t_data *data, t_win *vars, int x, int y);
+void	start_ray_casting(t_win *vars);
+void	dda_line(t_win *vars, int x, int y, int color);
 
 #endif

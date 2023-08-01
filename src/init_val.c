@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:48:21 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/27 20:34:59 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/01 20:39:47 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void	init(t_win *vars)
 	vars->forw_back = 0;
 	vars->left_right = 0;
 	vars->r_left_right = 0;
+	vars->m_step = 5;
+	vars->dis = 0;
 	vars->data = malloc(sizeof(t_data));
 	vars->player = malloc(sizeof(t_player));
 	vars->dda_params = malloc(sizeof(t_dda));
