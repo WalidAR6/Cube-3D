@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 10:17:00 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/27 21:14:36 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/01 02:51:02 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ double	intersection_with_horizontal(t_win *vars, double i)
 	{
 		if (vars->r_cast->x_h < 0 || vars->r_cast->y_h < 0 || vars->r_cast->x_h / 50 > ft_strlen(vars->map[0]) || vars->r_cast->y_h / 50 > 13)
 			break;
-		if (vars->map[(int)vars->r_cast->y_h / 50][(int)vars->r_cast->x_h / 50] == '1')
+		if (vars->map[(int)vars->r_cast->y_h / 50][(int)vars->r_cast->x_h / 50] == '1' || vars->map[(int)vars->r_cast->y_h / 50][(int)vars->r_cast->x_h / 50] == ' ')
 			break;
 		vars->r_cast->x_h = vars->r_cast->x_h + vars->r_cast->x_inc;
 		vars->r_cast->y_h = vars->r_cast->y_h + vars->r_cast->y_inc;
@@ -103,7 +103,7 @@ double	intersection_with_vertical(t_win *vars, double i)
 	{
 		if (vars->r_cast->x_v < 0 || vars->r_cast->y_v < 0 || vars->r_cast->x_v / 50 > ft_strlen(vars->map[0]) || vars->r_cast->y_v / 50 > 13)
 			break;
-		if (vars->map[(int)vars->r_cast->y_v / 50][(int)vars->r_cast->x_v / 50] == '1')
+		if (vars->map[(int)vars->r_cast->y_v / 50][(int)vars->r_cast->x_v / 50] == '1' || vars->map[(int)vars->r_cast->y_v / 50][(int)vars->r_cast->x_v / 50] == ' ')
 			break;
 		vars->r_cast->x_v = vars->r_cast->x_v + vars->r_cast->x_inc;
 		vars->r_cast->y_v = vars->r_cast->y_v + vars->r_cast->y_inc;
@@ -130,6 +130,7 @@ void	start_ray_casting(t_win *vars, t_data *data)
 			dda_line(data, vars, vars->r_cast->x_h, vars->r_cast->y_h);
 		else if (h_i > v_i)
 			dda_line(data, vars, vars->r_cast->x_v, vars->r_cast->y_v);
+		
 		i += angle;
 		n += angle;
 	}
