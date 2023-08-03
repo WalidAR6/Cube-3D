@@ -6,11 +6,16 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 19:03:41 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/02 19:21:59 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/03 18:07:15 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cube.h"
+
+void	draw_walls(t_win *vars)
+{
+	(void)vars;
+}
 
 void	draw_celling(t_win *vars)
 {

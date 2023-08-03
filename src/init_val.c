@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:48:21 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/02 14:44:16 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/03 13:49:41 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*get_linef(void)
 void	init_player(char **map,t_player *vars)
 {
 	get_player_pos(map, vars);
-	vars->view_angle = 180;
+	vars->view_angle = 50;
 }
 
 void	init_dda(t_win *vars)

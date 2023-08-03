@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 09:43:02 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/02 19:40:36 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/03 18:10:47 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	drawing_all(t_win *vars)
 {
-	// draw_map(vars, vars->data);
 	// draw_line(vars, vars->data);
-	start_ray_casting(vars);
+	// draw_map(vars, vars->data);
 	// draw_player(vars);
 	game_component(vars);
+	start_ray_casting(vars);
 }
 
 void	mlx_hooks(t_win *vars)

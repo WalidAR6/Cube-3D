@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 10:17:00 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/02 19:38:01 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/03 18:10:30 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,10 @@ int	wall_coll_h(t_win *vars, double angle)
 	return (1);
 }
 
-double	intersection_with_horizontal(t_win *vars, double i)
+double	intersection_with_horizontal(t_win *vars, double i, double angle)
 {
 	double t;
-	double angle;
 
-	angle = vars->player->view_angle + i;
-	modify_angle(&angle);
 	t = tan(angle * PI / 180);
 	first_horizontal_intersection(vars, t, i);
 	while (true)
@@ -73,13 +70,10 @@ double	intersection_with_horizontal(t_win *vars, double i)
 	return (sqrt(pow(vars->player->x_player - vars->r_cast->x_h, 2) + pow(vars->player->y_player - vars->r_cast->y_h, 2)));
 }
 
-double	intersection_with_vertical(t_win *vars, double i)
+double	intersection_with_vertical(t_win *vars, double i, double angle)
 {
 	double t;
-	double angle;
 
-	angle = vars->player->view_angle + i;
-	modify_angle(&angle);
 	t = tan(angle * PI / 180);
 	first_vertical_intersection(vars, t, i);
 	while (true)
@@ -101,18 +95,28 @@ void	start_ray_casting(t_win *vars)
 	double	i;
 	double	n;
 	double	angle;
+	double	r_angle;
 	
 	i = 0;
-	angle = 0.04;
-	n = -30;
+	angle = FOV / 2000.0;
+	n = - FOV / 2;
 	while (i < FOV)
 	{
-		h_i = intersection_with_horizontal(vars, n);
-		v_i = intersection_with_vertical(vars, n);
+		r_angle = vars->player->view_angle + n;
+		modify_angle(&r_angle);
+		h_i = intersection_with_horizontal(vars, n, r_angle);
+		v_i = intersection_with_vertical(vars, n, r_angle);
 		if (h_i < v_i)
-			vars->dis = h_i;
+		{
+			vars->dis = sin(r_angle * PI / 180) * h_i;
+			// dda_line(vars, vars->r_cast->x_h, vars->r_cast->y_h, 0xFF0000);
+		}
 		else
-			vars->dis = v_i;
+		{
+			vars->dis = sin(r_angle * PI / 180) * v_i;
+			// dda_line(vars, vars->r_cast->x_v, vars->r_cast->y_v, 0xFF0000);
+		}
+		draw_walls(vars);
 		i += angle;
 		n += angle;
 	}
