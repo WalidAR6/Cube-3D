@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 11:32:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/04 18:44:21 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/04 21:58:48 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	get_player_pos(char **map, t_player *vars)
 
 void	dda_line(t_win *vars, double x, double y, int color)
 {
-	int			i;
+	int		i;
 	double		step;
 
 	i = 0;

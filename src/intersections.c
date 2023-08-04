@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 11:03:49 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/02 16:10:38 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/04 22:27:51 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	modify_angle(double *angle)
 {
 	if (*angle >= 360)
-		*angle = *angle - 360;
+		*angle = *angle - 360.0;
 	else if (*angle < 0)
-		*angle = 360 - fabs(*angle);
+		*angle = 360.0 - fabs(*angle);
 }
 
 int	looking_direction(t_win *vars, double i)
@@ -26,10 +26,10 @@ int	looking_direction(t_win *vars, double i)
 
 	angle = vars->player->view_angle + i;
 	if (angle >= 360)
-		angle = angle - 360;
+		angle = angle - 360.0;
 	else if (angle < 0)
-		angle = 360 - fabs(angle);
-	if ((angle) >= 0 && (angle) <= 180)
+		angle = 360.0 - fabs(angle);
+	if (angle >= 0 && angle <= 180)
 		return (-1);
 	return (1);
 }
@@ -40,9 +40,10 @@ int	looking_direction_2(t_win *vars, double i)
 
 	angle = vars->player->view_angle + i;
 	if (angle >= 360)
-		angle = angle - 360;
-		
-	if ((angle) >= 90 && (angle) <= 270)
+		angle = angle - 360.0;
+	else if (angle < 0)
+		angle = 360.0 - fabs(angle);
+	if (angle >= 90 && angle <= 270)
 		return (1);
 	return (-1);
 }
