@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 11:32:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/01 14:37:36 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/04 18:44:21 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ void	get_player_pos(char **map, t_player *vars)
 	}
 }
 
-void	dda_line(t_win *vars, int x, int y, int color)
+void	dda_line(t_win *vars, double x, double y, int color)
 {
-	int		i;
-	int		step;
+	int			i;
+	double		step;
 
 	i = 0;
 	vars->dda_params->px = vars->player->x_player;
@@ -74,6 +74,37 @@ void	dda_line(t_win *vars, int x, int y, int color)
 		my_mlx_pixel_put(vars->data, vars->dda_params->px, vars->dda_params->py, color);
 		vars->dda_params->px += vars->dda_params->x_inc;
 		vars->dda_params->py += vars->dda_params->y_inc;
+		i++;
+	}
+}
+
+void	dda_wall(t_win *vars, double xs, double ys, double xe, double ye, int color)
+{
+	int		i;
+	double	step;
+	double	dx;
+	double	dy;
+	double	px;
+	double	py;
+	double	x_inc;
+	double	y_inc;
+
+	i = 0;
+	px = xs;
+	py = ys;
+	dx = xe - xs;
+	dy = ye - ys;
+	if (fabs(dx) > fabs(dy))
+		step = fabs(dx);
+	else
+		step = fabs(dy);
+	x_inc = dx/step;
+	y_inc = dy/step;
+	while (i < step)
+	{
+		my_mlx_pixel_put(vars->data, px, py, color);
+		px += x_inc;
+		py += y_inc;
 		i++;
 	}
 }

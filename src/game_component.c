@@ -6,15 +6,20 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 19:03:41 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/03 18:07:15 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/04 20:52:22 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cube.h"
 
-void	draw_walls(t_win *vars)
+void	draw_walls(t_win *vars, int i)
 {
-	(void)vars;
+	double	slice_lenght;
+	double	start_pos;
+
+	slice_lenght = (50 / vars->dis) * vars->dis_p_plan;
+	start_pos = (MAP_HEIGHT / 2) - (slice_lenght / 2);
+	dda_wall(vars, i, start_pos, i, start_pos + slice_lenght, 0x964B00);
 }
 
 void	draw_celling(t_win *vars)

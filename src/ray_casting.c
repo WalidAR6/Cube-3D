@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 10:17:00 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/03 18:10:30 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/04 20:44:32 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ double	intersection_with_vertical(t_win *vars, double i, double angle)
 
 void	start_ray_casting(t_win *vars)
 {
+	int		win_pix;
 	double	h_i;
 	double	v_i;
 	double	i;
@@ -100,6 +101,7 @@ void	start_ray_casting(t_win *vars)
 	i = 0;
 	angle = FOV / 2000.0;
 	n = - FOV / 2;
+	win_pix = 0;
 	while (i < FOV)
 	{
 		r_angle = vars->player->view_angle + n;
@@ -108,16 +110,17 @@ void	start_ray_casting(t_win *vars)
 		v_i = intersection_with_vertical(vars, n, r_angle);
 		if (h_i < v_i)
 		{
-			vars->dis = sin(r_angle * PI / 180) * h_i;
+			vars->dis = cos((vars->player->view_angle - r_angle) * PI / 180) * h_i;
 			// dda_line(vars, vars->r_cast->x_h, vars->r_cast->y_h, 0xFF0000);
 		}
 		else
 		{
-			vars->dis = sin(r_angle * PI / 180) * v_i;
+			vars->dis = cos((vars->player->view_angle - r_angle) * PI / 180) * v_i;
 			// dda_line(vars, vars->r_cast->x_v, vars->r_cast->y_v, 0xFF0000);
 		}
-		draw_walls(vars);
+		draw_walls(vars, win_pix);
 		i += angle;
 		n += angle;
+		win_pix++;
 	}
 }

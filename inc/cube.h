@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/03 18:06:07 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/04 18:44:58 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ typedef struct s_win
 	int			r_left_right;
 	int			m_step;
 	double		dis;
+	double		dis_p_plan;
 	t_ray_cast	*r_cast;
 	t_dda		*dda_params;
 	t_data		*data;
@@ -122,13 +123,14 @@ void	drawing_all(t_win *vars);
 int		hooks(t_win *vars);
 void	print_map(t_win *vars);
 void	start_ray_casting(t_win *vars);
-void	dda_line(t_win *vars, int x, int y, int color);
+void	dda_line(t_win *vars, double x, double y, int color);
 void	first_horizontal_intersection(t_win *vars, double t, double i);
 void	first_vertical_intersection(t_win *vars, double t, double i);
 void	modify_angle(double *angle);
 int		looking_direction(t_win *vars, double i);
 int		looking_direction_2(t_win *vars, double i);
 void	game_component(t_win *vars);
-void	draw_walls(t_win *vars);
+void	draw_walls(t_win *vars, int i);
+void	dda_wall(t_win *vars, double xs, double ys, double xe, double ye, int color);
 
 #endif
