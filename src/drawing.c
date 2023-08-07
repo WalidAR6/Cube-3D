@@ -12,16 +12,16 @@
 
 #include "../inc/cube.h"
 
-void	draw_square(t_data *data, int x, int y, int color)
+void	draw_square(t_data *data, double x, double y, int color)
 {
-	int i;
-	int j;
+	double i;
+	double j;
 	
 	i = 0;
-	while (i < 50)
+	while (i < 50 - 1)
 	{
 		j = 0;
-		while (j < 50)
+		while (j < 50 - 1)
 		{
 			my_mlx_pixel_put(data, i + y, j + x, color);
 			j++;
@@ -48,16 +48,16 @@ void	draw_cercle(t_win *vars, int color)
 
 void	draw_map(t_win *vars, t_data *data)
 {
-	int i;
-	int j;
+	double i;
+	double j;
 
 	i = 0;
-	while (vars->map[i])
+	while (vars->map[(int)i])
 	{
 		j = 0;
-		while (vars->map[i][j])
+		while (vars->map[(int)i][(int)j])
 		{
-			if (vars->map[i][j] == '1' || vars->map[i][j] == ' ')
+			if (vars->map[(int)i][(int)j] == '1' || vars->map[(int)i][(int)j] == ' ')
 				draw_square(data, i * 50, j * 50, WALL_COLOR);
 			else
 				draw_square(data, i * 50, j * 50, GROUND_COLOR);

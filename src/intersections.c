@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 11:03:49 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/04 22:27:51 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/05 18:10:55 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,9 @@ void	first_horizontal_intersection(t_win *vars, double t, double i)
 		vars->r_cast->y_h = floor(vars->player->y_player / 50) * 50 - 1;
 	}
 	vars->r_cast->x_h = vars->player->x_player + (vars->r_cast->y_h - vars->player->y_player) / t;
+	// printf("x_h = %f, y_h = %f\n",vars->r_cast->x_h, vars->r_cast->y_h);
+	// printf("x_h = %d, y_h = %d\n",(int)(vars->r_cast->x_h / 50), (int)(vars->r_cast->y_h / 50));
+	
 }
 
 void	first_vertical_intersection(t_win *vars, double t, double i)

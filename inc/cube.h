@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/04 21:15:04 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/05 17:34:02 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ typedef struct s_win
 void	start_game(t_win *vars, t_data *data);
 void	init(t_win *vars);
 void	get_player_pos(char **map, t_player *vars);
-void	draw_square(t_data *data, int x, int y, int color);
+void	draw_square(t_data *data, double x, double y, int color);
 void	draw_cercle(t_win *vars, int color);
 void	draw_map(t_win *vars, t_data *data);
 void	draw_player(t_win *vars);
