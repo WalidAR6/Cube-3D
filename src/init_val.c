@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:48:21 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/04 21:11:48 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/08 21:29:03 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	init(t_win *vars)
 	vars->r_left_right = 0;
 	vars->m_step = 5;
 	vars->dis = 0;
-	vars->dis_p_plan = tan(30 * PI / 180) * MAP_WIDTH / 2;
+	vars->dis_p_plan = (MAP_WIDTH / 2) / tan(30 * PI / 180);
 	vars->data = malloc(sizeof(t_data));
 	vars->player = malloc(sizeof(t_player));
 	vars->dda_params = malloc(sizeof(t_dda));

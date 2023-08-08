@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/05 17:34:02 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/08 21:07:27 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ void	modify_angle(double *angle);
 int		looking_direction(t_win *vars, double i);
 int		looking_direction_2(t_win *vars, double i);
 void	game_component(t_win *vars);
-void	draw_walls(t_win *vars, int i);
+void	draw_walls(t_win *vars, double i);
 void	dda_wall(t_win *vars, double xs, double ys, double xe, double ye, int color);
 
 #endif

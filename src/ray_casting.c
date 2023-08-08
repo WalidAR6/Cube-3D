@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 10:17:00 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/08 17:01:08 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/08 21:08:35 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ double	intersection_with_vertical(t_win *vars, double i, double angle)
 
 void	start_ray_casting(t_win *vars)
 {
-	int		win_pix;
+	double	win_pix;
 	double	h_i;
 	double	v_i;
 	double	i;
@@ -99,9 +99,9 @@ void	start_ray_casting(t_win *vars)
 	double	r_angle;
 	
 	i = 0;
-	angle = FOV / 2000.0;
-	n = - FOV / 2;
-	win_pix = 0;
+	angle = (double)FOV / 2000;
+	n = -30;
+	win_pix = angle;
 	while (i < FOV)
 	{
 		r_angle = vars->player->view_angle + n;
@@ -121,6 +121,6 @@ void	start_ray_casting(t_win *vars)
 		draw_walls(vars, win_pix);
 		i += angle;
 		n += angle;
-		win_pix++;
+		win_pix += 1;
 	}
 }
