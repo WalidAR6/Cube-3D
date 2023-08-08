@@ -18,10 +18,10 @@ void	draw_square(t_data *data, double x, double y, int color)
 	double j;
 	
 	i = 0;
-	while (i < 50 - 1)
+	while (i < 50)
 	{
 		j = 0;
-		while (j < 50 - 1)
+		while (j < 50)
 		{
 			my_mlx_pixel_put(data, i + y, j + x, color);
 			j++;
