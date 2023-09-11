@@ -11,7 +11,8 @@ LIBFT_SRC = utils/libft/ft_atoi.c\
 			utils/libft/ft_strlcpy.c\
 			utils/libft/ft_strlen.c\
 			utils/libft/ft_strjoin_gnl.c\
-			utils/libft/ft_substr.c
+			utils/libft/ft_substr.c\
+			utils/libft/ft_strcmp.c
 
 GNL_SRC = utils/get_next_line/get_next_line.c
 
