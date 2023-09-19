@@ -6,64 +6,11 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:04 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/11 18:20:26 by aharib           ###   ########.fr       */
+/*   Updated: 2023/09/19 17:39:10 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cube.h"
-
-int		check_empty_line(char *line)
-{
-	if (line[0] == '\n')
-		return (0);
-	return (1);
-}
-
-void	parse_params(char **p_line)
-{
-	char **tmp;
-	int	i;
-
-	i = 0;
-	while (p_line[i])
-	{
-		tmp = ft_split(p_line[i], ' ');
-		if (ft_strlen(tmp[0]) == 2 &&
-			(ft_strcmp(tmp[0], "NO") && ft_strcmp(tmp[0], "SO")
-			&& ft_strcmp(tmp[0], "EA") && ft_strcmp(tmp[0], "WE")))
-		{
-			write (1, "ERROR in map directions !\n", 26);
-			exit (1);
-		}
-		i++;
-	}
-}
-
-char	**params_line(int fd)
-{
-	char	*line;
-	char	*tmp_line;
-	char	**p_line;
-	int 	n;
-	
-	n = 0;
-	line = ft_strdup("");
-	tmp_line = NULL;
-	while (1)
-	{
-		tmp_line = get_next_line(fd);
-		if (tmp_line == NULL || n == 6)
-			break ;
-		if (check_empty_line(tmp_line) == 1)
-		{
-			line = ft_strjoin(line, tmp_line);
-			n++;
-		}
-		free(tmp_line);
-	}
-	p_line = ft_split(line, '\n');
-	return (p_line);
-}
 
 int	main(int ac, char **av)
 {

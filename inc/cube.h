@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/08 21:07:27 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/19 16:54:37 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,5 +132,19 @@ int		looking_direction_2(t_win *vars, double i);
 void	game_component(t_win *vars);
 void	draw_walls(t_win *vars, double i);
 void	dda_wall(t_win *vars, double xs, double ys, double xe, double ye, int color);
+
+/****PARSING****/
+/*params*/
+char	**params_line(int fd);
+void	parse_params(char **p_line);
+void	check_length(char **param);
+void	check_params(char *param, char *value);
+void	check_duplicate(char **param);
+/*value*/
+void	check_param_value(char *value, int n);
+void	check_fc_value(char *value);
+/*utils*/
+int		check_empty_line(char *line);
+void	check_digit(char *str);
 
 #endif
