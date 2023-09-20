@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:43:36 by aharib            #+#    #+#             */
-/*   Updated: 2023/09/19 17:39:59 by aharib           ###   ########.fr       */
+/*   Updated: 2023/09/20 00:14:55 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	check_duplicate(char **param)
 void	check_params(char *param, char *value)
 {
 	if ((param[0] == 'N' && param[1] == 'O' && param[2] == '\0')
-		|| (param[0] == 'S' && param[1] == 'D' && param[2] == '\0')
+		|| (param[0] == 'S' && param[1] == 'O' && param[2] == '\0')
 		|| (param[0] == 'W' && param[1] == 'E' && param[2] == '\0')
 		|| (param[0] == 'E' && param[1] == 'A' && param[2] == '\0'))
 	{
@@ -80,7 +80,6 @@ void	parse_params(char **p_line)
 	while (p_line[i])
 	{
 		tmp1 = ft_split(p_line[i], ' ');
-		printf("-->[%s]\n", tmp1[0]);
 		check_length(tmp1);
 		tmp[i] = tmp1[0];
 		i++;

@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:46:57 by aharib            #+#    #+#             */
-/*   Updated: 2023/09/19 18:17:19 by aharib           ###   ########.fr       */
+/*   Updated: 2023/09/20 01:46:11 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ void	check_fc_value(char *value)
 
 	tmp = ft_split(value, ',');
 	i = 0;
+	if (ft_doublen(tmp) != 3)
+	{
+		write(2, "ERROR in FC value 9lal !\n", 25);
+		exit(1);
+	}
 	while (tmp[i])
 	{
 		check_digit(tmp[i]);

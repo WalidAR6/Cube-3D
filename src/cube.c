@@ -6,17 +6,38 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:04 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/19 17:39:10 by aharib           ###   ########.fr       */
+/*   Updated: 2023/09/20 00:23:06 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cube.h"
+
+char	**map_line(int fd)
+{
+	char	*line;
+	char	*tmp_line;
+	char 	**m_line;
+
+	line = ft_strdup("");
+	tmp_line = NULL;
+	while (1)
+	{
+		tmp_line = get_next_line(fd);
+		if (tmp_line == NULL)
+			break ;
+		if (check_empty_line(tmp_line) == 1)
+			line = ft_strjoin(line, tmp_line);
+	}
+	m_line = ft_split(line, '\n');
+	return (m_line);
+}
 
 int	main(int ac, char **av)
 {
 	int		fd;
 	t_win	vars;
 	char 	**p_line;
+	char 	**m_line;
 	// t_data	data;
 
 	if (ac == 2)
@@ -32,10 +53,11 @@ int	main(int ac, char **av)
 		fd = open (av[1], O_RDONLY);
 		p_line = params_line(fd);
 		parse_params(p_line);
+		m_line = map_line(fd);
 		int i = 0;
-		while (p_line[i])
+		while (m_line[i])
 		{
-			printf("[%s]\n", p_line[i]);
+			printf("[%s]\n", m_line[i]);
 			i++;
 		}
 		exit (1);

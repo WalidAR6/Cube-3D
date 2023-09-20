@@ -6,11 +6,21 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:44:24 by aharib            #+#    #+#             */
-/*   Updated: 2023/09/19 16:45:07 by aharib           ###   ########.fr       */
+/*   Updated: 2023/09/20 01:44:43 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cube.h"
+
+int	ft_doublen(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
 
 int		check_empty_line(char *line)
 {

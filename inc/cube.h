@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/19 16:54:37 by aharib           ###   ########.fr       */
+/*   Updated: 2023/09/20 01:45:37 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,5 +146,6 @@ void	check_fc_value(char *value);
 /*utils*/
 int		check_empty_line(char *line);
 void	check_digit(char *str);
+int		ft_doublen(char **str);
 
 #endif
