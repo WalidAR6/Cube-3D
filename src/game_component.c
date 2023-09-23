@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 19:03:41 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/08 21:27:58 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/23 23:46:34 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 void	draw_walls(t_win *vars, double i)
 {
+	(void)i;
 	double	slice_lenght;
 	double	start_pos;
 
 	slice_lenght = 50 / vars->dis * vars->dis_p_plan;
 	start_pos = (MAP_HEIGHT / 2) - (slice_lenght / 2);
-	dda_wall(vars, i, start_pos, i, start_pos + slice_lenght, 0x964B00);
+	// dda_wall(vars, i, start_pos, i, start_pos + slice_lenght, 0x964B00);
 }
 
 void	draw_celling(t_win *vars)

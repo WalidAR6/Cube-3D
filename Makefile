@@ -48,4 +48,7 @@ fclean: clean
 
 re: fclean all
 
+run: all
+	@./cube3d
+
 .PHONY: all re fclean clean
