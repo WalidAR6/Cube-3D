@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 10:17:00 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/23 23:45:28 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/24 22:00:22 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,12 +111,12 @@ void	start_ray_casting(t_win *vars)
 		if (h_i < v_i)
 		{
 			vars->dis = cos((vars->player->view_angle - r_angle) * PI / 180) * h_i;
-			dda_line(vars, vars->r_cast->x_h, vars->r_cast->y_h, 0xFF0000);
+			// dda_line(vars, vars->r_cast->x_h, vars->r_cast->y_h, 0xFF0000);
 		}
 		else
 		{
 			vars->dis = cos((vars->player->view_angle - r_angle) * PI / 180) * v_i;
-			dda_line(vars, vars->r_cast->x_v, vars->r_cast->y_v, 0xFF0000);
+			// dda_line(vars, vars->r_cast->x_v, vars->r_cast->y_v, 0xFF0000);
 		}
 		draw_walls(vars, win_pix);
 		i += angle;

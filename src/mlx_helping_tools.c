@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 11:32:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/04 21:58:48 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/24 22:02:16 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	dda_line(t_win *vars, double x, double y, int color)
 	}
 }
 
-void	dda_wall(t_win *vars, double xs, double ys, double xe, double ye, int color)
+void	dda_wall(t_win *vars, double x, double ys, double ye, int color)
 {
 	int		i;
 	double	step;
@@ -90,9 +90,9 @@ void	dda_wall(t_win *vars, double xs, double ys, double xe, double ye, int color
 	double	y_inc;
 
 	i = 0;
-	px = xs;
+	px = x;
 	py = ys;
-	dx = xe - xs;
+	dx = x - x;
 	dy = ye - ys;
 	if (fabs(dx) > fabs(dy))
 		step = fabs(dx);

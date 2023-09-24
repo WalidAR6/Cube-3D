@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 09:43:02 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/23 23:44:57 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/24 22:00:37 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	drawing_all(t_win *vars)
 {
 	// draw_line(vars, vars->data);
-	draw_map(vars, vars->data);
-	draw_player(vars);
-	// game_component(vars);
+	// draw_map(vars, vars->data);
+	// draw_player(vars);
+	game_component(vars);
 	start_ray_casting(vars);
 }
 
