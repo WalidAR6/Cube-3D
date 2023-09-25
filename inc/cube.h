@@ -6,13 +6,14 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/24 22:02:28 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/25 01:20:21 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUBE_H
 # define CUBE_H
 
+#include <string.h>
 # include<unistd.h>
 # include<stdlib.h>
 # include<stdio.h>
@@ -83,6 +84,13 @@ typedef struct s_ray_cast
 	double	y_v;
 }				t_ray_cast;
 
+typedef struct s_m_map
+{
+	int				start_x;
+	int				start_y;
+	struct s_win	*data;
+}				t_m_map;
+
 typedef struct s_win
 {
 	void		*mlx;
@@ -99,12 +107,13 @@ typedef struct s_win
 	t_dda		*dda_params;
 	t_data		*data;
 	t_player	*player;
+	t_m_map		*m_map;
 }				t_win;
 
 void	start_game(t_win *vars, t_data *data);
 void	init(t_win *vars);
 void	get_player_pos(char **map, t_player *vars);
-void	draw_square(t_data *data, double x, double y, int color);
+void	draw_square(t_win *vars, int color);
 void	draw_cercle(t_win *vars, int color);
 void	draw_map(t_win *vars, t_data *data);
 void	draw_player(t_win *vars);
@@ -132,5 +141,6 @@ int		looking_direction_2(t_win *vars, double i);
 void	game_component(t_win *vars);
 void	draw_walls(t_win *vars, double i);
 void	dda_wall(t_win *vars, double x, double ys, double ye, int color);
+void 	draw_mini_map(t_win *vars, t_m_map *m_map);
 
 #endif

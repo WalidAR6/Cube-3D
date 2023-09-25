@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:48:21 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/08 21:29:03 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/24 23:11:24 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,13 @@ void	init_r_cast(t_win *vars)
 	vars->r_cast->y_v = 0;
 }
 
+void	init_m_map(t_win *vars, t_m_map *m_map)
+{
+	m_map->start_x = MAP_WIDTH - 250;
+	m_map->start_y = MAP_HEIGHT - 250;
+	m_map->data = vars;
+}
+
 void	init(t_win *vars)
 {
 	vars->mlx = mlx_init();
@@ -75,9 +82,11 @@ void	init(t_win *vars)
 	vars->player = malloc(sizeof(t_player));
 	vars->dda_params = malloc(sizeof(t_dda));
 	vars->r_cast = malloc(sizeof(t_ray_cast));
-	if (!vars->player || !vars->data || !vars->dda_params || !vars->r_cast)
+	vars->m_map = malloc(sizeof(t_m_map));
+	if (!vars->player || !vars->data || !vars->dda_params || !vars->r_cast || !vars->m_map)
 		exit (1);
 	init_player(vars->map, vars->player);
 	init_dda(vars);
 	init_r_cast(vars);
+	init_m_map(vars, vars->m_map);
 }
