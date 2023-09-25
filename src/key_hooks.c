@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 11:28:14 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/02 19:19:16 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/25 18:13:14 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,16 @@ void	move_player(t_win *vars)
 		rotate(vars, -1);
 	if (vars->r_left_right == 1)
 		rotate(vars, 1);
+	if (vars->m_map->r_l == 1)
+	{
+		vars->player->view_angle += vars->m_map->m_angle;
+		vars->m_map->r_r = 0;
+	}
+	if (vars->m_map->r_r == 1)
+	{
+		vars->player->view_angle -= vars->m_map->m_angle;
+		vars->m_map->r_l = 0;	
+	}
 }
 
 int		hooks(t_win *vars)

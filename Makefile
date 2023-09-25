@@ -25,6 +25,7 @@ SRC = src/cube.c\
 		src/intersections.c\
 		src/game_component.c\
 		src/mini_map.c\
+		src/mouse_mov.c\
 		src/init_val.c
 
 LIBFT_OBJ = $(LIBFT_SRC:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/25 01:20:21 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/25 20:15:34 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,11 @@ typedef struct s_m_map
 {
 	int				start_x;
 	int				start_y;
+	double			m_angle;
+	int				r_l;
+	int				r_r;
+	double			prev;
+	int 			flag;
 	struct s_win	*data;
 }				t_m_map;
 
@@ -142,5 +147,7 @@ void	game_component(t_win *vars);
 void	draw_walls(t_win *vars, double i);
 void	dda_wall(t_win *vars, double x, double ys, double ye, int color);
 void 	draw_mini_map(t_win *vars, t_m_map *m_map);
+void    mouse_mouvement(t_win *vars);
+int		start_mov(int x, int y, t_win *vars);
 
 #endif
