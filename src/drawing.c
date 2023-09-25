@@ -94,7 +94,7 @@ void	draw_line(t_win *vars, t_data *data)
 	double angle;
 
 	angle = vars->player->view_angle;
-	angle += 90;
+	angle -= 90;
 	// modify_angle(&angle);
 	i = 0;
 	while (i < 22)
