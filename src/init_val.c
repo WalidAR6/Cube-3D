@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:48:21 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/25 20:15:43 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/26 21:57:38 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,7 @@ void	init_m_map(t_win *vars, t_m_map *m_map)
 	m_map->start_x = MAP_WIDTH - 250;
 	m_map->start_y = MAP_HEIGHT - 250;
 	m_map->m_angle = 0;
-	m_map->r_l = 0;
-	m_map->r_r = 0;
+	m_map->r_rl = 0;
 	m_map->prev = 0;
 	m_map->flag = 0;
 	m_map->data = vars;

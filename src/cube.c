@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:04 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/23 10:30:55 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/26 22:47:19 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	main(int ac, char **av)
 	(void)av;
 	(void)ac;
 	t_win	vars;
-	// t_data	data;
 
 	init(&vars);
 	start_game(&vars, vars.data);

@@ -31,21 +31,21 @@ void	draw_square(t_win *vars, int color)
 	}
 }
 
-void	draw_cercle(t_win *vars, int color)
-{
-	double	x1;
-	double	y1;
-	double	angl;
+// void	draw_cercle(t_win *vars, int color)
+// {
+// 	double	x1;
+// 	double	y1;
+// 	double	angl;
 
-	angl = 0;
-	while (angl < 360)
-	{
-		x1 = REDIUS * cos(angl * PI / 180);
-		y1 = REDIUS * sin(angl * PI / 180);
-		dda_line(vars, x1 + vars->m_map->start_x + 120, y1 + vars->m_map->start_y + 120, color);
-		angl += 0.1;
-	}
-}
+// 	angl = 0;
+// 	while (angl < 360)
+// 	{
+// 		x1 = REDIUS * cos(angl * PI / 180);
+// 		y1 = REDIUS * sin(angl * PI / 180);
+// 		dda_line(vars, x1 + vars->m_map->start_x + 120, y1 + vars->m_map->start_y + 120, color);
+// 		angl += 0.1;
+// 	}
+// }
 
 // void	draw_map(t_win *vars, t_data *data)
 // {
@@ -68,25 +68,24 @@ void	draw_cercle(t_win *vars, int color)
 // 	}
 // }
 
+// void	draw_player(t_win *vars)
+// {
+// 	int i;
+// 	int j;
 
-void	draw_player(t_win *vars)
-{
-	int i;
-	int j;
-
-	i = 0;
-	while (vars->map[i])
-	{
-		j = 0;
-		while (vars->map[i][j])
-		{
-			if (vars->map[i][j] == 'N')
-				draw_cercle(vars, PLAYER_COLOR);
-			j++;
-		}
-		i++;
-	}
-}
+// 	i = 0;
+// 	while (vars->map[i])
+// 	{
+// 		j = 0;
+// 		while (vars->map[i][j])
+// 		{
+// 			if (vars->map[i][j] == 'N')
+// 				draw_cercle(vars, PLAYER_COLOR);
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// }
 
 void	draw_line(t_win *vars, t_data *data)
 {
@@ -95,7 +94,7 @@ void	draw_line(t_win *vars, t_data *data)
 
 	angle = vars->player->view_angle;
 	angle -= 90;
-	// modify_angle(&angle);
+	modify_angle(&angle);
 	i = 0;
 	while (i < 22)
 	{

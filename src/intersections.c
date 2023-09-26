@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 11:03:49 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/08 17:02:00 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/26 22:12:29 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	modify_angle(double *angle)
 {
-	if (*angle >= 360)
+	if (*angle > 360)
 		*angle = *angle - 360.0;
 	else if (*angle < 0)
 		*angle = 360.0 - fabs(*angle);

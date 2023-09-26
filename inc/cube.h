@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/25 20:15:34 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/26 21:57:32 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,7 @@ typedef struct s_m_map
 	int				start_x;
 	int				start_y;
 	double			m_angle;
-	int				r_l;
-	int				r_r;
+	int				r_rl;
 	double			prev;
 	int 			flag;
 	struct s_win	*data;
