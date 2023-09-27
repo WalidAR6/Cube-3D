@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 10:17:00 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/25 01:26:47 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/27 02:16:40 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	start_ray_casting(t_win *vars)
 	double	r_angle;
 	
 	i = 0;
-	angle = (double)FOV / 2000;
+	angle = (double)FOV / MAP_WIDTH;
 	n = -30;
 	win_pix = angle;
 	while (i < FOV)
