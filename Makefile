@@ -15,6 +15,7 @@ LIBFT_SRC = utils/libft/ft_atoi.c\
 			utils/libft/ft_strcmp.c\
 			utils/libft/ft_isdigit.c
 
+
 GNL_SRC = utils/get_next_line/get_next_line.c
 
 SRC = src/cube.c\
@@ -30,6 +31,7 @@ SRC = src/cube.c\
 		src/param_check.c\
 		src/param_value_check.c\
 		utils/parsing_utils.c\
+
 
 LIBFT_OBJ = $(LIBFT_SRC:.c=.o)
 

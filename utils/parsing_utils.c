@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:44:24 by aharib            #+#    #+#             */
-/*   Updated: 2023/09/20 01:44:43 by aharib           ###   ########.fr       */
+/*   Updated: 2023/09/27 02:08:49 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,11 @@ void	check_digit(char *str)
 		else
 			i++;
 	}
+}
+
+int	white_spaces(char c)
+{
+	if (c == ' ' || (c >= 9 && c <= 13))
+			return (0);
+	return (1);
 }

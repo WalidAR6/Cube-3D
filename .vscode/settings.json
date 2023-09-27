@@ -1,6 +1,8 @@
 {
 	"files.associations": {
 		"*.embeddedhtml": "html",
-		"libft.h": "c"
+		"libft.h": "c",
+		"locale": "c",
+		"sstream": "c"
 	}
 }
