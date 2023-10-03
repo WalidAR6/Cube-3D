@@ -6,11 +6,26 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 10:17:00 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/08 21:08:35 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/03 18:20:58 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cube.h"
+
+int get_map_height(t_win *vars)
+{
+	char **tmp;
+	int count;
+	
+	count = 0;
+	tmp = vars->map;
+	while (*tmp)
+	{
+		count++;
+		tmp++;
+	}
+	return (count - 1);
+}
 
 int	wall_coll_v(t_win *vars, double angle)
 {
@@ -60,7 +75,7 @@ double	intersection_with_horizontal(t_win *vars, double i, double angle)
 	first_horizontal_intersection(vars, t, i);
 	while (true)
 	{
-		if (vars->r_cast->x_h < 0 || vars->r_cast->y_h < 0 || vars->r_cast->x_h / 50 > (int)ft_strlen(vars->map[0]) || vars->r_cast->y_h / 50 > 13)
+		if (vars->r_cast->x_h < 0 || vars->r_cast->y_h < 0 || vars->r_cast->y_h / 50 > get_map_height(vars) || !check_map_width(vars, vars->r_cast->x_h, vars->r_cast->y_h))
 			break;
 		if (vars->map[(int)vars->r_cast->y_h / 50][(int)vars->r_cast->x_h / 50] == '1' || vars->map[(int)vars->r_cast->y_h / 50][(int)vars->r_cast->x_h / 50] == ' ' || !wall_coll_h(vars, angle))
 			break;
@@ -78,7 +93,7 @@ double	intersection_with_vertical(t_win *vars, double i, double angle)
 	first_vertical_intersection(vars, t, i);
 	while (true)
 	{
-		if (vars->r_cast->x_v < 0 || vars->r_cast->y_v < 0 || vars->r_cast->x_v / 50 > (int)ft_strlen(vars->map[0]) || vars->r_cast->y_v / 50 > 13)
+		if (vars->r_cast->x_v < 0 || vars->r_cast->y_v < 0 || vars->r_cast->y_v / 50 > get_map_height(vars) || !check_map_width(vars, vars->r_cast->x_v, vars->r_cast->y_v))
 			break;
 		if (vars->map[(int)vars->r_cast->y_v / 50][(int)vars->r_cast->x_v / 50] == '1' || vars->map[(int)vars->r_cast->y_v / 50][(int)vars->r_cast->x_v / 50] == ' ' || !wall_coll_v(vars, angle))
 			break;
@@ -99,7 +114,7 @@ void	start_ray_casting(t_win *vars)
 	double	r_angle;
 	
 	i = 0;
-	angle = (double)FOV / 2000;
+	angle = (double)FOV / MAP_WIDTH;
 	n = -30;
 	win_pix = angle;
 	while (i < FOV)

@@ -1,6 +1,6 @@
 NAME = Cub3D
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -Ofast
 
 CC = cc
 
@@ -27,11 +27,12 @@ SRC = src/cube.c\
 		src/ray_casting.c\
 		src/intersections.c\
 		src/game_component.c\
-		src/init_val.c\
 		src/param_check.c\
 		src/param_value_check.c\
 		utils/parsing_utils.c\
-
+		src/mini_map.c\
+		src/mouse_mov.c\
+		src/init_val.c
 
 LIBFT_OBJ = $(LIBFT_SRC:.c=.o)
 
@@ -54,5 +55,8 @@ fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all
+
+run: all
+	@./cube3d
 
 .PHONY: all re fclean clean

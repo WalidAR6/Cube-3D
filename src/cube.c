@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:04 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/03 18:33:11 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/03 18:47:16 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,18 @@ char	**map_line(int fd)
 void clean_map(char **m_line)
 {
 	int	i;
+	int	j;
 
 	i = 0;
 	while (m_line[i])
 	{
-		if (m_line[i] == '&')
-			m_line[i] == ' ';
+		j = 0;
+		while (m_line[i][j])
+		{
+			if (m_line[i][j] == '&')
+				m_line[i][j] = ' ';
+			j++;
+		}
 		i++;
 	}
 }
@@ -121,7 +127,6 @@ int	main(int ac, char **av)
 	t_win	vars;
 	char	**p_line;
 	char	**m_line;
-	// t_data	data;
 
 	// atexit(f);
 	if (ac == 2)
@@ -137,9 +142,8 @@ int	main(int ac, char **av)
 		check_other_char(m_line);
 		check_surroundings(m_line);
 		clean_map(m_line);
-		
+		vars.map = m_line;
 		printf("\33[1;32mGOOD\33[0m\n");
-		exit(0);
 		init(&vars);
 		start_game(&vars, vars.data);
 		mlx_loop(vars.mlx);

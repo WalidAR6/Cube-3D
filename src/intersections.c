@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 11:03:49 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/08 17:02:00 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/27 00:49:51 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	modify_angle(double *angle)
 {
-	if (*angle >= 360)
+	if (*angle > 360)
 		*angle = *angle - 360.0;
 	else if (*angle < 0)
 		*angle = 360.0 - fabs(*angle);
@@ -62,10 +62,8 @@ void	first_horizontal_intersection(t_win *vars, double t, double i)
 		vars->r_cast->x_inc = vars->r_cast->y_inc / t;
 		vars->r_cast->y_h = floor(vars->player->y_player / 50) * 50 - 0.01;
 	}
-	vars->r_cast->x_h = vars->player->x_player + (vars->r_cast->y_h - vars->player->y_player) / t;
-	// printf("x_h = %f, y_h = %f\n",vars->r_cast->x_h, vars->r_cast->y_h);
-	// printf("x_h = %d, y_h = %d\n",(int)(vars->r_cast->x_h / 50), (int)(vars->r_cast->y_h / 50));
-	
+	vars->r_cast->x_h = vars->player->x_player
+		+ (vars->r_cast->y_h - vars->player->y_player) / t;
 }
 
 void	first_vertical_intersection(t_win *vars, double t, double i)
@@ -82,5 +80,6 @@ void	first_vertical_intersection(t_win *vars, double t, double i)
 		vars->r_cast->y_inc = vars->r_cast->x_inc * t;
 		vars->r_cast->x_v = floor(vars->player->x_player / 50) * 50 - 0.01;
 	}
-	vars->r_cast->y_v = vars->player->y_player + (vars->r_cast->x_v - vars->player->x_player) * t;
+	vars->r_cast->y_v = vars->player->y_player
+		+ (vars->r_cast->x_v - vars->player->x_player) * t;
 }

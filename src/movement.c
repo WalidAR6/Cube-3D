@@ -6,11 +6,20 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 10:54:48 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/03 13:56:00 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/28 01:54:53 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cube.h"
+
+
+int		wall_leak(t_win *vars, double i, double j)
+{
+	if (vars->map[(int)vars->player->y_player / 50][(int)j / 50] == '1'
+		&& vars->map[(int)i / 50][(int)vars->player->x_player / 50] == '1')
+		return (1);
+	return (0);
+}
 
 void	move_down(t_win	*vars)
 {
@@ -23,12 +32,13 @@ void	move_down(t_win	*vars)
 	m_y = vars->m_step * sin(vars->player->view_angle * PI / 180);
 	i = vars->player->y_player - m_y;
 	j = vars->player->x_player - m_x;
-	if (vars->map[(int)i / 50][(int)j / 50] != '1' && vars->map[(int)i / 50][(int)j / 50] != ' ')
+	if (vars->map[(int)i / 50][(int)j / 50] != '1' && vars->map[(int)i / 50][(int)j / 50] != ' ' && !wall_leak(vars, i, j))
 	{
 		vars->player->x_player -= m_x;
 		vars->player->y_player -= m_y;
 	}
 }
+
 void	move_up(t_win	*vars)
 {
 	double i;
@@ -40,7 +50,7 @@ void	move_up(t_win	*vars)
 	m_y = vars->m_step * sin(vars->player->view_angle * PI / 180);
 	i = vars->player->y_player + m_y;
 	j = vars->player->x_player + m_x;
-	if (vars->map[(int)i / 50][(int)j / 50] != '1' && vars->map[(int)i / 50][(int)j / 50] != ' ')
+	if (vars->map[(int)i / 50][(int)j / 50] != '1' && vars->map[(int)i / 50][(int)j / 50] != ' ' && !wall_leak(vars, i, j))
 	{
 		vars->player->x_player += m_x;
 		vars->player->y_player += m_y;
@@ -58,12 +68,11 @@ void	move_right(t_win *vars)
 	m_y = vars->m_step * sin((90 - vars->player->view_angle) * PI / 180);
 	i = vars->player->y_player + m_y;
 	j = vars->player->x_player - m_x;
-	if (vars->map[(int)i / 50][(int)j / 50] != '1' && vars->map[(int)i / 50][(int)j / 50] != ' ')
+	if (vars->map[(int)i / 50][(int)j / 50] != '1' && vars->map[(int)i / 50][(int)j / 50] != ' ' && !wall_leak(vars, i, j))
 	{
 		vars->player->x_player -= m_x;
 		vars->player->y_player += m_y;
 	}
-
 }
 
 void	move_left(t_win	*vars)
@@ -77,7 +86,7 @@ void	move_left(t_win	*vars)
 	m_y = vars->m_step * sin((90 - vars->player->view_angle) * PI / 180);
 	i = vars->player->y_player - m_y;
 	j = vars->player->x_player + m_x;
-	if (vars->map[(int)i / 50][(int)j / 50] != '1' && vars->map[(int)i / 50][(int)j / 50] != ' ')
+	if (vars->map[(int)i / 50][(int)j / 50] != '1' && vars->map[(int)i / 50][(int)j / 50] != ' ' && !wall_leak(vars, i, j))
 	{
 		vars->player->x_player += m_x;
 		vars->player->y_player -= m_y;
