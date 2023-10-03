@@ -6,11 +6,32 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:44:24 by aharib            #+#    #+#             */
-/*   Updated: 2023/09/27 02:08:49 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/03 02:51:03 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cube.h"
+
+void	ft_freedbl(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
+
+void	error_msg(void)
+{
+	write(2, "\033[31m", 5);
+	write(2, "ERROR !!!\n", 10);
+	write(2, "\033[0m", 4);
+	exit(1);
+}
 
 int	ft_doublen(char **str)
 {
@@ -22,13 +43,19 @@ int	ft_doublen(char **str)
 	return (i);
 }
 
-int		check_empty_line(char *line)
+int	check_empty_line(char *line)
 {
-	if (line[0] == '\n')
-		return (0);
-	return (1);
-}
+	int	i;
 
+	i = 0;
+	while (line[i])
+	{
+		if (white_spaces(line[i]))
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 void	check_digit(char *str)
 {
@@ -38,10 +65,7 @@ void	check_digit(char *str)
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
-		{
-			write(2, "ERROR in FC value (not a number) !\n", 35);
-			exit(1);
-		}
+			error_msg();
 		else
 			i++;
 	}
@@ -50,6 +74,6 @@ void	check_digit(char *str)
 int	white_spaces(char c)
 {
 	if (c == ' ' || (c >= 9 && c <= 13))
-			return (0);
+		return (0);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:46:57 by aharib            #+#    #+#             */
-/*   Updated: 2023/09/26 19:04:25 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/03 02:41:12 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,18 @@ void	check_fc_value(char *value)
 	char	**tmp;
 	int		i;
 
-	printf("value = %s\n", value);
 	tmp = ft_split(value, ',');
 	i = 0;
 	if (ft_doublen(tmp) != 3)
-	{
-		printf("[%d]\n", ft_doublen(tmp));
-		write(2, "ERROR in FC value 9lal !\n", 25);
-		exit(1);
-	}
+		error_msg();
 	while (tmp[i])
 	{
 		check_digit(tmp[i]);
 		if ((ft_atoi(tmp[i]) < 0 || ft_atoi(tmp[i]) > 255))
-		{
-			write(2, "ERROR in FC value !\n", 21);
-			exit(1);
-		}
+			error_msg();
 		i++;
 	}
+	ft_freedbl(tmp);
 }
 
 void	check_direc_value(char *value)
@@ -44,19 +37,14 @@ void	check_direc_value(char *value)
 
 	fd = open(value, O_RDONLY);
 	if (fd == -1)
-	{
-		write(2, "ERROR in direction value file !\n", 32);
-		exit(1);		
-	}
+		error_msg();
 	else if (value[ft_strlen(value) - 1] != 'm'
 		|| value[ft_strlen(value) - 2] != 'p'
 		|| value[ft_strlen(value) - 3] != 'x'
 		|| value[ft_strlen(value) - 4] != '.')
 	{
 		close (fd);
-		write(2, "ERROR in direction value file !(makisalich b xpm)\n", 50);
-		exit(1);		
-		
+		error_msg();
 	}
 	close (fd);
 }

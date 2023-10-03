@@ -1,4 +1,4 @@
-NAME = cube3d
+NAME = Cub3D
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -42,16 +42,16 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 %.o: %.c inc/cube.h inc/get_next_line.h inc/libft.h
-	$(CC) $(FLAGS) -Imlx -c $< -o $@
+	@$(CC) $(FLAGS) -Imlx -c $< -o $@
 
 $(NAME): $(OBJ) $(GNL_OBJ) $(LIBFT_OBJ)
-	$(CC) $(FLAGS) $(OBJ) $(GNL_OBJ) $(LIBFT_OBJ) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJ) $(GNL_OBJ) $(LIBFT_OBJ) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 clean:
-	rm -f $(OBJ) $(GNL_OBJ) $(LIBFT_OBJ)
+	@rm -f $(OBJ) $(GNL_OBJ) $(LIBFT_OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

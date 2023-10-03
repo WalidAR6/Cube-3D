@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:43:36 by aharib            #+#    #+#             */
-/*   Updated: 2023/09/20 00:14:55 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/03 03:01:00 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ void	check_duplicate(char **param)
 		while (param[j])
 		{
 			if (ft_strcmp(param[i], param[j]) == 0)
-			{
-				write(2, "ERROR in duplicate !\n", 22);
-				exit(1);
-			}
+				error_msg();
 			j++;
 		}
 		i++;
@@ -35,38 +32,35 @@ void	check_duplicate(char **param)
 	}
 }
 
-void	check_params(char *param, char *value)
+void	check_params(char *param)
 {
 	if ((param[0] == 'N' && param[1] == 'O' && param[2] == '\0')
 		|| (param[0] == 'S' && param[1] == 'O' && param[2] == '\0')
 		|| (param[0] == 'W' && param[1] == 'E' && param[2] == '\0')
 		|| (param[0] == 'E' && param[1] == 'A' && param[2] == '\0'))
-	{
-		check_param_value(value, 2);
 		return ;
-	}
 	else if ((param[0] == 'F' && param[1] == '\0') || (param[0] == 'C'
 			&& param[1] == '\0'))
-	{
-		check_param_value(value, 1);
 		return ;
-	}
 	else
-	{
-		write(2, "ERROR in directions or (F or c)!\n", 33);
-		exit(1);
-	}
+		error_msg();
 }
 
-void	check_length(char **param)
+int	check_length(char *param)
 {
-	if (ft_strlen(param[0]) == 2 || ft_strlen(param[0]) == 1)
-		check_params(param[0], param[1]);
-	else
+	if (ft_strlen(param) == 2)
 	{
-		write(2, "ERROR in params length !\n", 25);
-		exit(1);
+		check_params(param);
+		return (2);
 	}
+	else if (ft_strlen(param) == 1)
+	{
+		check_params(param);
+		return (1);
+	}
+	else
+		error_msg();
+	return (0);
 }
 
 void	parse_params(char **p_line)
@@ -74,18 +68,33 @@ void	parse_params(char **p_line)
 	char	**tmp;
 	char	**tmp1;
 	int		i;
+	int		j;
+	int		len;
 
-	i = 0;
+	i = -1;
+	j = 1;
 	tmp = malloc(sizeof(char *) * 7);
-	while (p_line[i])
+	while (p_line[++i])
 	{
 		tmp1 = ft_split(p_line[i], ' ');
-		check_length(tmp1);
+		len = check_length(tmp1[0]);
+		if (tmp1[2] != NULL)
+		{
+			while (tmp1[++j])
+			{
+				tmp1[1] = ft_strjoin(tmp1[1], tmp1[j]);
+				free(tmp1[j]);
+			}
+			j = 1;
+		}
+		check_param_value(tmp1[1], len);
+		free(tmp1[1]);
 		tmp[i] = tmp1[0];
-		i++;
+		free(tmp1);
 	}
 	tmp[i] = NULL;
 	check_duplicate(tmp);
+	ft_freedbl(tmp);
 }
 
 char	**params_line(int fd)
@@ -108,7 +117,9 @@ char	**params_line(int fd)
 			line = ft_strjoin(line, tmp_line);
 			n++;
 		}
+		free(tmp_line);
 	}
 	p_line = ft_split(line, '\n');
+	free(line);
 	return (p_line);
 }
