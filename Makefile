@@ -1,6 +1,6 @@
 NAME = cube3d
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -Ofast
 
 CC = cc
 

@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/29 16:35:12 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/03 18:22:52 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,5 +148,7 @@ void	dda_wall(t_win *vars, double x, double ys, double ye, int color);
 void 	draw_mini_map(t_win *vars, t_m_map *m_map);
 void    mouse_mouvement(t_win *vars);
 int		start_mov(int x, int y, t_win *vars);
+int		get_map_height(t_win *vars);
+int     check_map_width(t_win *vars, double x, double y);
 
 #endif
