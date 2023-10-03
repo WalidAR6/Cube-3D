@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 09:43:02 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/08 17:01:15 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/03 18:01:31 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	mlx_hooks(t_win *vars)
 void	start_game(t_win *vars, t_data *data)	
 {
 	data->img = mlx_new_image(vars->mlx, MAP_WIDTH, MAP_HEIGHT);
-	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel,
+	data->addr = mlx_ta_addr(data->img, &data->bits_per_pixel,
 										&data->line_length,
 										&data->endian);
 	mlx_hooks(vars);

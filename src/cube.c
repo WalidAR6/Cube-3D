@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:04 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/03 03:14:49 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/03 18:33:11 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,19 @@ char	**map_line(int fd)
 	return (m_line);
 }
 
+void clean_map(char **m_line)
+{
+	int	i;
+
+	i = 0;
+	while (m_line[i])
+	{
+		if (m_line[i] == '&')
+			m_line[i] == ' ';
+		i++;
+	}
+}
+
 void f()
 {
 	system("leaks Cub3D");
@@ -123,6 +136,8 @@ int	main(int ac, char **av)
 		m_line = map_line(fd);
 		check_other_char(m_line);
 		check_surroundings(m_line);
+		clean_map(m_line);
+		
 		printf("\33[1;32mGOOD\33[0m\n");
 		exit(0);
 		init(&vars);
