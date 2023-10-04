@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:43:36 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/03 03:01:00 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/04 19:02:32 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	check_length(char *param)
 	return (0);
 }
 
-void	parse_params(char **p_line)
+void	parse_params(char **p_line, t_win *vars)
 {
 	char	**tmp;
 	char	**tmp1;
@@ -87,7 +87,7 @@ void	parse_params(char **p_line)
 			}
 			j = 1;
 		}
-		check_param_value(tmp1[1], len);
+		check_param_value(tmp1[0], tmp1[1], len, vars);
 		free(tmp1[1]);
 		tmp[i] = tmp1[0];
 		free(tmp1);

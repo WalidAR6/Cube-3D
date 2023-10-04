@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/03 19:10:32 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/04 18:51:47 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,8 @@ typedef struct s_win
 	int			left_right;
 	int			r_left_right;
 	int			m_step;
+	int			c_color;
+	int			f_color;
 	double		dis;
 	double		dis_p_plan;
 	t_ray_cast	*r_cast;
@@ -153,13 +155,13 @@ int     check_map_width(t_win *vars, double x, double y);
 /****PARSING****/
 /*params*/
 char	**params_line(int fd);
-void	parse_params(char **p_line);
+void	parse_params(char **p_line, t_win *vars);
 int		check_length(char *param);
 void	check_params(char *param);
 void	check_duplicate(char **param);
 /*value*/
-void	check_param_value(char *value, int n);
-void	check_fc_value(char *value);
+void	check_param_value(char *param, char *value, int n, t_win *vars);
+void	check_fc_value(char *value, t_win *vars, int n);
 /*utils*/
 int		check_empty_line(char *line);
 void	check_digit(char *str);

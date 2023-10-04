@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_component.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 19:03:41 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/24 22:01:33 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/04 19:34:09 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	draw_celling(t_win *vars)
 		j = 0;
 		while (j < MAP_WIDTH)
 		{
-			my_mlx_pixel_put(vars->data, j, i, 0xB3E7F4);
+			my_mlx_pixel_put(vars->data, j, i, 520319);
 			j++;
 		}
 		i++;
@@ -54,7 +54,7 @@ void	draw_floor(t_win *vars)
 		j = 0;
 		while (j < MAP_WIDTH)
 		{
-			my_mlx_pixel_put(vars->data, j, i, 0xa9a9a9);
+			my_mlx_pixel_put(vars->data, j, i, vars->f_color);
 			j++;
 		}
 		i++;
