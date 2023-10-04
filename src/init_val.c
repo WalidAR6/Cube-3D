@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_val.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
+/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:48:21 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/03 19:08:31 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/04 11:59:28 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	init_r_cast(t_win *vars)
 
 void	init_m_map(t_win *vars, t_m_map *m_map)
 {
-	m_map->start_x = MAP_WIDTH - 250;
-	m_map->start_y = MAP_HEIGHT - 250;
+	m_map->start_x = 5;
+	m_map->start_y = 5;
 	m_map->m_angle = 0;
 	m_map->r_rl = 0;
 	m_map->prev = 0;

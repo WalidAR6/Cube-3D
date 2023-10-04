@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 11:32:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/24 22:02:16 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/04 12:37:47 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,31 +49,6 @@ void	get_player_pos(char **map, t_player *vars)
 			}
 			j++;
 		}
-		i++;
-	}
-}
-
-void	dda_line(t_win *vars, double x, double y, int color)
-{
-	int		i;
-	double		step;
-
-	i = 0;
-	vars->dda_params->px = vars->player->x_player;
-	vars->dda_params->py = vars->player->y_player;
-	vars->dda_params->dx = x - vars->player->x_player;
-	vars->dda_params->dy = y - vars->player->y_player;
-	if (fabs(vars->dda_params->dx) > fabs(vars->dda_params->dy))
-		step = fabs(vars->dda_params->dx);
-	else
-		step = fabs(vars->dda_params->dy);
-	vars->dda_params->x_inc = vars->dda_params->dx/step;
-	vars->dda_params->y_inc = vars->dda_params->dy/step;
-	while (i < step)
-	{
-		my_mlx_pixel_put(vars->data, vars->dda_params->px, vars->dda_params->py, color);
-		vars->dda_params->px += vars->dda_params->x_inc;
-		vars->dda_params->py += vars->dda_params->y_inc;
 		i++;
 	}
 }
