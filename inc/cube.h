@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
+/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/04 18:51:47 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/05 21:47:39 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 # define GROUND_COLOR 0xcccccc
 # define PLAYER_COLOR 0xff0000
 
-# define MAP_WIDTH 1700
-# define MAP_HEIGHT 900
+# define MAP_WIDTH 2000
+# define MAP_HEIGHT 1000
 
 # define KEY_UP 13
 # define KEY_LEFT 0
@@ -63,16 +63,6 @@ typedef struct s_player
 	double		y_player;
 	double		view_angle;
 }				t_player;
-
-typedef struct s_dda
-{
-	double	px;
-	double	py;
-	double	dx;
-	double	dy;
-	double	x_inc;
-	double	y_inc;
-}				t_dda;
 
 typedef struct s_ray_cast
 {
@@ -109,7 +99,6 @@ typedef struct s_win
 	double		dis;
 	double		dis_p_plan;
 	t_ray_cast	*r_cast;
-	t_dda		*dda_params;
 	t_data		*data;
 	t_player	*player;
 	t_m_map		*m_map;
@@ -151,6 +140,7 @@ void    mouse_mouvement(t_win *vars);
 int		start_mov(int x, int y, t_win *vars);
 int		get_map_height(t_win *vars);
 int     check_map_width(t_win *vars, double x, double y);
+int		player_view_direction(char **map);
 
 /****PARSING****/
 /*params*/

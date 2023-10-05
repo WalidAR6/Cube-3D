@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
+/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:04 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/04 19:05:38 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/05 16:27:20 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	check_other_char(char **m_line)
 	}
 	if (n == 0)
 		error_msg();
-}
+} 
 
 char	**map_line(int fd)
 {
@@ -121,11 +121,6 @@ void f()
 	system("leaks Cub3D");
 }
 
-// unsigned long convertRGB(int r, int g, int b)
-// {   
-//     return (((r & 0xff) << 16) + ((g & 0xff) << 8) + (b & 0xff));
-// }
-
 int	main(int ac, char **av)
 {
 	int		fd;
@@ -150,8 +145,6 @@ int	main(int ac, char **av)
 		check_surroundings(m_line);
 		clean_map(m_line);
 		vars.map = m_line;
-		// printf("%lu\n", convertRGB(255, 255, 255));
-		// exit (0);
 		printf("\33[1;32mGOOD\33[0m\n");
 		init(&vars);
 		start_game(&vars, vars.data);

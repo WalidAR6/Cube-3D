@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:48:21 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/04 11:59:28 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/05 17:06:51 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,7 @@
 void	init_player(char **map,t_player *vars)
 {
 	get_player_pos(map, vars);
-	vars->view_angle = 0;
-}
-
-void	init_dda(t_win *vars)
-{
-	vars->dda_params->px = 0;	
-	vars->dda_params->py = 0;
-	vars->dda_params->dx = 0;
-	vars->dda_params->dy = 0;
-	vars->dda_params->x_inc = 0;
-	vars->dda_params->y_inc = 0;
+	vars->view_angle = player_view_direction(map);
 }
 
 void	init_r_cast(t_win *vars)
@@ -61,13 +51,11 @@ void	init(t_win *vars)
 	vars->dis_p_plan = (MAP_WIDTH / 2) / tan(30 * PI / 180);
 	vars->data = malloc(sizeof(t_data));
 	vars->player = malloc(sizeof(t_player));
-	vars->dda_params = malloc(sizeof(t_dda));
 	vars->r_cast = malloc(sizeof(t_ray_cast));
 	vars->m_map = malloc(sizeof(t_m_map));
-	if (!vars->player || !vars->data || !vars->dda_params || !vars->r_cast || !vars->m_map)
+	if (!vars->player || !vars->data || !vars->r_cast || !vars->m_map)
 		return;
 	init_player(vars->map, vars->player);
-	init_dda(vars);
 	init_r_cast(vars);
 	init_m_map(vars, vars->m_map);
 }

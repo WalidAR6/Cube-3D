@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   param_value_check.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
+/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:46:57 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/04 19:28:39 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/05 10:24:30 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,10 @@ int	set_colors(int r, int g, int b)
 {
 	int color;
 	
-	color = r << 16;
+	color  = 0;
+	color += r << 16;
 	color += g << 8;
-	color += b << 4;
+	color += b;
 	return (color);
 }
 
