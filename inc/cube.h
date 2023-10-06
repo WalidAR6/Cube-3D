@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/05 21:47:39 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/06 11:38:35 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 # define GROUND_COLOR 0xcccccc
 # define PLAYER_COLOR 0xff0000
 
-# define MAP_WIDTH 2000
-# define MAP_HEIGHT 1000
+# define MAP_WIDTH 1700
+# define MAP_HEIGHT 900
 
 # define KEY_UP 13
 # define KEY_LEFT 0

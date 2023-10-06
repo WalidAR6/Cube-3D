@@ -25,7 +25,7 @@ void	draw_square(t_win *vars, int color)
 		while (j < 10)
 		{
 			my_mlx_pixel_put(vars->data, i + vars->m_map->start_x + (((12 * MAP_WIDTH) / 100) / 2),
-								j + vars->m_map->start_y + (((23 * MAP_HEIGHT) / 100) / 2), color);
+								j + vars->m_map->start_y + (((12 * MAP_WIDTH) / 100) / 2), color);
 			j++;
 		}
 		i++;
@@ -45,7 +45,7 @@ void	draw_line(t_win *vars, t_data *data)
 	{
 		my_mlx_pixel_put(data,
 			vars->m_map->start_x + (((12 * MAP_WIDTH) / 100) / 2) + 5 + i * cos(angle * PI / 180),
-			vars->m_map->start_y + (((23 * MAP_HEIGHT) / 100) / 2) + 5 + i * sin(angle * PI / 180),
+			vars->m_map->start_y + (((12 * MAP_WIDTH) / 100) / 2) + 5 + i * sin(angle * PI / 180),
 			PLAYER_COLOR);
 		i++;
 	}

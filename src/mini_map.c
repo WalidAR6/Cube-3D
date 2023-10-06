@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 23:01:06 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/05 21:45:23 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/06 11:35:26 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void    draw_mini_map(t_win *vars, t_m_map *m_map)
     while (i < (12 * MAP_WIDTH) / 100)
     {
         j = m_map->start_y;
-        x = vars->player->x_player + (((23 * MAP_HEIGHT) / 100) / 2);
-        while (j < (23 * MAP_HEIGHT) / 100)
+        x = vars->player->x_player + (((12 * MAP_WIDTH) / 100) / 2);
+        while (j < (12 * MAP_WIDTH) / 100)
         {
             if (x < 0 || y < 0 || (int)y / 50 > get_map_height(vars) || !check_map_width(vars, x, y))
                 my_mlx_pixel_put(vars->data, i, j, 0x323232);
