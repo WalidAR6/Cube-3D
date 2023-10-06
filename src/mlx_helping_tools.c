@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 11:32:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/05 17:06:20 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/06 20:13:35 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	dda_wall(t_win *vars, double x, double ys, double ye, int color)
 	i = 0;
 	px = x;
 	py = ys;
-	dx = x - x;
+	dx = 0;
 	dy = ye - ys;
 	if (fabs(dx) > fabs(dy))
 		step = fabs(dx);
