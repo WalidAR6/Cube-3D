@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 09:43:02 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/04 11:52:14 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/09 16:56:30 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	drawing_all(t_win *vars)
 
 void	mlx_hooks(t_win *vars)
 {
-	mlx_hook(vars->mlx_win, 6, 0, start_mov, vars); //this also in bonus part
+	// mlx_hook(vars->mlx_win, 6, 0, start_mov, vars); //this also in bonus part
 	mlx_hook(vars->mlx_win, 2, 0, key_hook, vars);
 	mlx_hook(vars->mlx_win, 3, 0, key_release, vars);
 	mlx_hook(vars->mlx_win, 17, 0, quit_game, vars);

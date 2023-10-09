@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   param_value_check.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:46:57 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/05 10:24:30 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/09 00:17:02 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,10 @@ void	check_fc_value(char *value, t_win *vars, int n)
 		vars->f_color = set_colors(ft_atoi(tmp[0]), ft_atoi(tmp[1]), ft_atoi(tmp[2]));
 	else
 		vars->c_color = set_colors(ft_atoi(tmp[0]), ft_atoi(tmp[1]), ft_atoi(tmp[2]));
-	printf("f : %d\n", vars->f_color);
-	printf("c : %d\n", vars->c_color);
 	ft_freedbl(tmp);
 }
 
-void	check_direc_value(char *value)
+void	check_direc_value(char *ref, char *value, t_win *vars)
 {
 	int	fd;
 
@@ -81,20 +79,28 @@ void	check_direc_value(char *value)
 		close (fd);
 		error_msg();
 	}
+	if (ref[0] == 'N' && ref[1] == 'O')
+		vars->walls->north.path = ft_strdup(value);
+	else if (ref[0] == 'S' && ref[1] == 'O')
+		vars->walls->south.path = ft_strdup(value);
+	else if (ref[0] == 'W' && ref[1] == 'E')
+		vars->walls->west.path = ft_strdup(value);
+	else if (ref[0] == 'E' && ref[1] == 'A')
+		vars->walls->east.path = ft_strdup(value);
 	close (fd);
 }
 
-void	check_param_value(char *param, char *value, int n, t_win *vars)
+void	check_param_value(char *ref, char *value, int n, t_win *vars)
 {
 	if (n == 1)
 	{
-		if (param[0] == 'F' && param[1] == '\0')
+		if (ref[0] == 'F' && ref[1] == '\0')
 			check_fc_value(value, vars, 1);
-		else if (param[0] == 'C' && param[1] == '\0')
+		else if (ref[0] == 'C' && ref[1] == '\0')
 			check_fc_value(value, vars, 2);
 	}
 	else if (n == 2)
-		check_direc_value(value);
+		check_direc_value(ref, value, vars);
 	else
 		return ;
 }

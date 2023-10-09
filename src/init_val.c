@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_val.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:48:21 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/05 17:06:51 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/09 15:34:06 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	init_m_map(t_win *vars, t_m_map *m_map)
 void	init(t_win *vars)
 {
 	vars->mlx = mlx_init();
-	vars->mlx_win = mlx_new_window(vars->mlx, MAP_WIDTH, MAP_HEIGHT, "Cube3D");
+	vars->mlx_win = mlx_new_window(vars->mlx, MAP_WIDTH, MAP_HEIGHT, "Cub3D");
 	vars->forw_back = 0;
 	vars->left_right = 0;
 	vars->r_left_right = 0;
@@ -58,4 +58,6 @@ void	init(t_win *vars)
 	init_player(vars->map, vars->player);
 	init_r_cast(vars);
 	init_m_map(vars, vars->m_map);
+	// init_colors(vars);
+	// init_textures(vars);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/06 11:38:35 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/09 16:27:54 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@
 # define REDIUS 5
 # define FOV 60
 
+
 typedef struct	s_data
 {
 	void	*img;
@@ -56,6 +57,30 @@ typedef struct	s_data
 	int		line_length;
 	int		endian;
 }				t_data;
+
+typedef struct s_w_info
+{
+	t_data			img_data;
+	char			*path;
+	int				size;
+	unsigned int	**pixels;
+}				t_w_info;
+
+typedef struct	s_rgbt
+{
+	int	r;
+	int	g;
+	int	b;
+	int t;
+}				t_rgbt;
+
+typedef struct s_walls
+{
+	t_w_info	east;
+	t_w_info	west;
+	t_w_info	north;
+	t_w_info	south;
+}				t_walls;
 
 typedef struct s_player
 {
@@ -102,6 +127,7 @@ typedef struct s_win
 	t_data		*data;
 	t_player	*player;
 	t_m_map		*m_map;
+	t_walls		*walls;
 }				t_win;
 
 void	start_game(t_win *vars, t_data *data);
@@ -133,7 +159,7 @@ void	modify_angle(double *angle);
 int		looking_direction(t_win *vars, double i);
 int		looking_direction_2(t_win *vars, double i);
 void	game_component(t_win *vars);
-void	draw_walls(t_win *vars, double i);
+void	draw_walls(t_win *vars, double i, double angle, int h, int v);
 void	dda_wall(t_win *vars, double x, double ys, double ye, int color);
 void 	draw_mini_map(t_win *vars, t_m_map *m_map);
 void    mouse_mouvement(t_win *vars);
@@ -159,6 +185,11 @@ int		ft_doublen(char **str);
 int		white_spaces(char c);
 void	error_msg(void);
 void	ft_freedbl(char **str);
+int		set_colors(int r, int g, int b);
+/*textures*/
+void			init_textures(t_win *vars);
+unsigned int	**pixels_color(t_win *vars);
+void			init_colors(t_win *vars);
 
 
 #endif

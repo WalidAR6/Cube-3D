@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:44:24 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/03 02:51:03 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/08 23:41:49 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	check_digit(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (!ft_isdigit(str[i]))
+		if (!ft_isdigit(str[i]) && white_spaces(str[i]))
 			error_msg();
 		else
 			i++;

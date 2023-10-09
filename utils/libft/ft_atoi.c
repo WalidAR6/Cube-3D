@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:21:27 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/13 19:14:57 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/08 23:42:01 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,9 @@ int	ft_atoi(const char *str)
 		res = res * 10 + str[i] - '0';
 		i++;
 	}
+	while (white_spaces(str[i]) == 0)
+		i++;
+	if (str[i] != '\0')
+		error_msg();
 	return (res * sign);
 }

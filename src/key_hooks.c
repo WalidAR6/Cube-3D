@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 11:28:14 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/03 18:55:39 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/09 16:56:49 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,12 @@ void	move_player(t_win *vars)
 		rotate(vars, -1);
 	if (vars->r_left_right == 1)
 		rotate(vars, 1);
-	if (vars->m_map->r_rl == 1)
-	{
-		vars->player->view_angle += vars->m_map->m_angle;
-		vars->m_map->r_rl = 0;
-	}
-	modify_angle(&vars->player->view_angle);  //this should be in bonus part
+	// if (vars->m_map->r_rl == 1)
+	// {
+	// 	vars->player->view_angle += vars->m_map->m_angle;
+	// 	vars->m_map->r_rl = 0;
+	// }
+	// modify_angle(&vars->player->view_angle);  //this should be in bonus part
 }
 
 int		hooks(t_win *vars)

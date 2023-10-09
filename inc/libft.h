@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:17:59 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/27 02:16:48 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/08 20:01:41 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ char	*ft_substr(char *s, unsigned int start, size_t len);
 char	*ft_strjoin_gnl(char *s1, char *s2);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_isdigit(char c);
+char	*ft_itoa(int n);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 10:17:00 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/05 12:31:27 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/09 16:26:54 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,9 @@ void	start_ray_casting(t_win *vars)
 	double	n;
 	double	angle;
 	double	r_angle;
-	
+	int h = 0;
+	int v = 0;
+		
 	i = 0;
 	angle = (double)FOV / MAP_WIDTH;
 	n = -30;
@@ -154,10 +156,18 @@ void	start_ray_casting(t_win *vars)
 		h_i = intersection_with_horizontal(vars, n, r_angle);
 		v_i = intersection_with_vertical(vars, n, r_angle);
 		if (h_i < v_i)
+		{
 			vars->dis = cos((vars->player->view_angle - r_angle) * PI / 180) * h_i;
+			h = 1;
+			v = 0;
+		}
 		else
+		{
 			vars->dis = cos((vars->player->view_angle - r_angle) * PI / 180) * v_i;
-		draw_walls(vars, win_pix);
+			h = 0;
+			v = 1;
+		}
+		draw_walls(vars, win_pix, r_angle, h, v);
 		i += angle;
 		n += angle;
 		win_pix += 1;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_helping_tools.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 11:32:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/06 20:13:35 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/08 23:47:46 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,3 +99,4 @@ void	dda_wall(t_win *vars, double x, double ys, double ye, int color)
 		i++;
 	}
 }
+ 

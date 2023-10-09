@@ -13,7 +13,8 @@ LIBFT_SRC = utils/libft/ft_atoi.c\
 			utils/libft/ft_strjoin_gnl.c\
 			utils/libft/ft_substr.c\
 			utils/libft/ft_strcmp.c\
-			utils/libft/ft_isdigit.c
+			utils/libft/ft_isdigit.c \
+			utils/libft/ft_itoa.c
 
 
 GNL_SRC = utils/get_next_line/get_next_line.c
@@ -32,7 +33,8 @@ SRC = src/cube.c\
 		utils/parsing_utils.c\
 		src/mini_map.c\
 		src/mouse_mov.c\
-		src/init_val.c
+		src/init_val.c \
+		src/painting.c
 
 LIBFT_OBJ = $(LIBFT_SRC:.c=.o)
 
