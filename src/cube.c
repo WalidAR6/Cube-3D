@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:04 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/10 10:03:06 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/10 17:16:50 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,7 +153,6 @@ int	main(int ac, char **av)
 		check_surroundings(m_line);
 		clean_map(m_line);
 		vars.map = m_line;
-		printf("\33[1;32mGOOD\33[0m\n");
 		init(&vars);
 		start_game(&vars, vars.data);
 		mlx_loop(vars.mlx);

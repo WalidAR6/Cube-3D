@@ -6,65 +6,11 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 02:23:10 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/10 06:40:53 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/10 15:47:28 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cube.h"
-
-t_rgbt	color_extractor(t_data *img, int x, int y)
-{
-	t_rgbt	color;
-
-	color.t = (unsigned int)img->addr[(y * img->line_length + x
-				* (img->bits_per_pixel / 8)) + 3];
-	color.r = (unsigned int)img->addr[(y * img->line_length + x
-				* (img->bits_per_pixel / 8)) + 2];
-	color.g = (unsigned int)img->addr[(y * img->line_length + x
-				* (img->bits_per_pixel / 8)) + 1];
-	color.b = (unsigned int)img->addr[(y * img->line_length + x
-				* (img->bits_per_pixel / 8))];
-	return (color);
-}
-
-unsigned int	**pixels_color(t_w_info *wall)
-{
-	unsigned int	**pixels;
-	t_rgbt 			color;
-	int				i;
-	int				j;
-
-	i = 0;
-	pixels = malloc(sizeof(unsigned int *) * wall->height);
-	while (i < wall->height)
-	{
-		pixels[i] = malloc(sizeof(unsigned int) * wall->width);
-		j = 0;
-		while (j < wall->width)
-		{
-			color = color_extractor(&wall->img_data,
-					i, j);
-			pixels[i][j] = set_colors(color.r, color.g, color.b);
-			
-			j++;
-		}
-		i++;
-	}
-	return (pixels);
-}
-
-void	init_colors(t_win *vars)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	vars->walls->east->pixels = pixels_color(vars->walls->east);
-	vars->walls->west->pixels = pixels_color(vars->walls->west);
-	vars->walls->north->pixels = pixels_color(vars->walls->north);
-	vars->walls->south->pixels = pixels_color(vars->walls->south);
-}
 
 void	init_textures2(t_win *vars)
 {

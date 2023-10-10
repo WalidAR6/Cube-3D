@@ -6,17 +6,25 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 19:03:41 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/10 10:08:49 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/10 15:46:26 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cube.h"
 
-void	paint_wall(t_win *vars, double offx, double start_pos, double end_pos, double slice_lenght, t_w_info *wall, double angle)
+unsigned int	get_pixel(t_data *data, int x, int y)
+{
+	char	*texture;
+	
+	texture = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	return (*(unsigned int *)texture);
+}
+
+void	paint_wall(t_win *vars, int offx, double start_pos, double end_pos, double slice_lenght, t_w_info *wall, double angle)
 {
 	int	y;
-	double	offy;
-	double	distanceFromTop;
+	int	offy;
+	int	distanceFromTop;
 	double	scale;
 
 	y = start_pos;
@@ -24,8 +32,8 @@ void	paint_wall(t_win *vars, double offx, double start_pos, double end_pos, doub
 	while (y < end_pos)
 	{
 		distanceFromTop = y + (slice_lenght / 2) - (MAP_HEIGHT / 2);
-		offy = distanceFromTop * ((double)wall->height / slice_lenght);
-		my_mlx_pixel_put(vars->data, angle, y, wall->pixels[(int)offx][(int)offy]);
+		offy = distanceFromTop * scale;
+		my_mlx_pixel_put(vars->data, angle, y, get_pixel(&wall->img_data, offx, offy));
 		y++;
 	}
 }
@@ -35,7 +43,7 @@ void	draw_walls(t_win *vars, double i, double angle, int h, int v)
 	double	slice_lenght;
 	double	start_pos;
 	double	end_pos;
-	double 	offx;
+	int 	offx;
 	double	tmp_slice_lenght;
 
 	slice_lenght = 50 / vars->dis * vars->dis_p_plan;

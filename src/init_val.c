@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:48:21 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/10 10:01:21 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/10 15:40:07 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,4 @@ void	init(t_win *vars)
 	init_r_cast(vars);
 	init_m_map(vars, vars->m_map);
 	init_textures(vars);
-	init_colors(vars);
 }

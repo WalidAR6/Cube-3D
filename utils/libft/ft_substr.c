@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:36:58 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/10 08:20:17 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/10 16:54:28 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	p = malloc((len + 1) * sizeof(char));
 	if (!p)
 		return (0);
-	while (s[i] && i < len)
+	while (s[i] && i < len && white_spaces(s[start]))
 	{
 		p[i++] = s[start++];
 	}

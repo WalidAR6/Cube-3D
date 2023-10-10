@@ -19,13 +19,13 @@ void	draw_square(t_win *vars, int color)
 	double j;
 	
 	i = 0;
-	while (i < 10)
+	while (i < 7)
 	{
 		j = 0;
-		while (j < 10)
+		while (j < 7)
 		{
-			my_mlx_pixel_put(vars->data, i + vars->m_map->start_x + (((12 * MAP_WIDTH) / 100) / 2) - 5,
-								j + vars->m_map->start_y + (((12 * MAP_WIDTH) / 100) / 2) - 5, color);
+			my_mlx_pixel_put(vars->data, i + vars->m_map->start_x + (((12 * MAP_WIDTH) / 100) / 2) - 3,
+								j + vars->m_map->start_y + (((12 * MAP_WIDTH) / 100) / 2) - 3, color);
 			j++;
 		}
 		i++;
@@ -41,7 +41,7 @@ void	draw_line(t_win *vars, t_data *data)
 	angle -= 90;
 	modify_angle(&angle);
 	i = 0;
-	while (i < 22)
+	while (i < 15)
 	{
 		my_mlx_pixel_put(data,
 			vars->m_map->start_x + (((12 * MAP_WIDTH) / 100) / 2) + i * cos(angle * PI / 180),
