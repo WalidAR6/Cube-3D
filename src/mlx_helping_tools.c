@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 11:32:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/08 23:47:46 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/10 08:05:02 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,34 +69,38 @@ void	get_player_pos(char **map, t_player *vars)
 	}
 }
 
-void	dda_wall(t_win *vars, double x, double ys, double ye, int color)
-{
-	int		i;
-	double	step;
-	double	dx;
-	double	dy;
-	double	px;
-	double	py;
-	double	x_inc;
-	double	y_inc;
+// void	paint_wall(t_win *vars, double offx, double offy, double start_pos, double slice_lenght, t_w_info *wall, double x)
+// {	
+// 	double	i;
+// 	double	step;
+// 	double	dx;
+// 	double	dy;
+// 	double	px;
+// 	double	py;
+// 	double	x_inc;
+// 	double	y_inc;
+// 	int		y;
 
-	i = 0;
-	px = x;
-	py = ys;
-	dx = 0;
-	dy = ye - ys;
-	if (fabs(dx) > fabs(dy))
-		step = fabs(dx);
-	else
-		step = fabs(dy);
-	x_inc = dx/step;
-	y_inc = dy/step;
-	while (i < step)
-	{
-		my_mlx_pixel_put(vars->data, px, py, color);
-		px += x_inc;
-		py += y_inc;
-		i++;
-	}
-}
- 
+// 	y = start_pos;
+// 	i = 0;
+// 	px = x;
+// 	py = start_pos;
+// 	dx = 0;
+// 	dy = slice_lenght;
+// 	if (fabs(dx) > fabs(dy))
+// 		step = fabs(dx);
+// 	else
+// 		step = fabs(dy);
+// 	x_inc = dx/step;
+// 	y_inc = dy/step;
+// 	double scale = 50 / slice_lenght;
+// 	printf("offx = %f, offy = %f\n", offx, offy);
+// 	while (i < step)
+// 	{
+// 		my_mlx_pixel_put(vars->data, px, py, wall->pixels[(int)offx][(int)offy]);
+// 		px += x_inc;
+// 		py += y_inc;
+// 		i++;
+// 		offy += scale;
+// 	}
+// }

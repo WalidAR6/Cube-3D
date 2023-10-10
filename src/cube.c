@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:04 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/09 15:47:42 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/10 10:03:06 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,14 @@ int	main(int ac, char **av)
 			error_msg();
 		vars.f_color = -1;
 		vars.c_color = -1;
+		vars.walls = malloc(sizeof(t_walls));
+		vars.walls->east = malloc(sizeof(t_w_info));
+		vars.walls->west = malloc(sizeof(t_w_info));
+		vars.walls->north = malloc(sizeof(t_w_info));
+		vars.walls->south = malloc(sizeof(t_w_info));
+		if (!vars.walls || !vars.walls->east || !vars.walls->west
+			|| !vars.walls->north || !vars.walls->south)
+			return (0);
 		fd = open(av[1], O_RDONLY);
 		p_line = params_line(fd);
 		parse_params(p_line, &vars);

@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/09 16:27:54 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/10 06:39:11 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ typedef struct s_w_info
 {
 	t_data			img_data;
 	char			*path;
-	int				size;
+	int				height;
+	int				width;
 	unsigned int	**pixels;
 }				t_w_info;
 
@@ -76,10 +77,10 @@ typedef struct	s_rgbt
 
 typedef struct s_walls
 {
-	t_w_info	east;
-	t_w_info	west;
-	t_w_info	north;
-	t_w_info	south;
+	t_w_info	*east;
+	t_w_info	*west;
+	t_w_info	*north;
+	t_w_info	*south;
 }				t_walls;
 
 typedef struct s_player
@@ -188,7 +189,7 @@ void	ft_freedbl(char **str);
 int		set_colors(int r, int g, int b);
 /*textures*/
 void			init_textures(t_win *vars);
-unsigned int	**pixels_color(t_win *vars);
+unsigned int	**pixels_color(t_w_info *wall);
 void			init_colors(t_win *vars);
 
 
