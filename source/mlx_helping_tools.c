@@ -6,11 +6,11 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 11:32:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/10 08:05:02 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/10 20:11:39 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cube.h"
+#include "../include/cube.h"
 
 int		player_view_direction(char **map)
 {
@@ -38,7 +38,7 @@ int		player_view_direction(char **map)
 	return (0);
 }
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void	pixel_put(t_data *data, int x, int y, int color)
 {
 	char	*dst;
 	
@@ -97,7 +97,7 @@ void	get_player_pos(char **map, t_player *vars)
 // 	printf("offx = %f, offy = %f\n", offx, offy);
 // 	while (i < step)
 // 	{
-// 		my_mlx_pixel_put(vars->data, px, py, wall->pixels[(int)offx][(int)offy]);
+// 		pixel_put(vars->data, px, py, wall->pixels[(int)offx][(int)offy]);
 // 		px += x_inc;
 // 		py += y_inc;
 // 		i++;

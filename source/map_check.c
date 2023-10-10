@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cube.c                                             :+:      :+:    :+:   */
+/*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/13 18:14:04 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/10 17:16:50 by aharib           ###   ########.fr       */
+/*   Created: 2023/10/10 20:01:49 by aharib            #+#    #+#             */
+/*   Updated: 2023/10/10 20:02:12 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cube.h"
+#include "../include/cube.h"
 
 void	check_surroundings(char **m_line)
 {
@@ -81,7 +81,6 @@ char	**map_line(int fd)
 		if (tmp_line == NULL || check_empty_line(tmp_line) == 0)
 			break ;
 		line = ft_strjoin(line, tmp_line);
-		free(tmp_line);
 	}
 	while (1)
 	{
@@ -90,10 +89,8 @@ char	**map_line(int fd)
 			break ;
 		if (check_empty_line(tmp_line) == 1)
 			error_msg();
-		free(tmp_line);
 	}
 	m_line = ft_split(line, '\n');
-	free(line);
 	return (m_line);
 }
 
@@ -114,51 +111,4 @@ void clean_map(char **m_line)
 		}
 		i++;
 	}
-}
-
-void f()
-{
-	system("leaks Cub3D");
-}
-
-int	main(int ac, char **av)
-{
-	int		fd;
-	t_win	vars;
-	char	**p_line;
-	char	**m_line;
-
-	// atexit(f);
-	if (ac == 2)
-	{
-		if (av[1][ft_strlen(av[1]) - 1] != 'b' || av[1][ft_strlen(av[1])
-			- 2] != 'u' || av[1][ft_strlen(av[1]) - 3] != 'c'
-			|| av[1][ft_strlen(av[1]) - 4] != '.')
-			error_msg();
-		vars.f_color = -1;
-		vars.c_color = -1;
-		vars.walls = malloc(sizeof(t_walls));
-		vars.walls->east = malloc(sizeof(t_w_info));
-		vars.walls->west = malloc(sizeof(t_w_info));
-		vars.walls->north = malloc(sizeof(t_w_info));
-		vars.walls->south = malloc(sizeof(t_w_info));
-		if (!vars.walls || !vars.walls->east || !vars.walls->west
-			|| !vars.walls->north || !vars.walls->south)
-			return (0);
-		fd = open(av[1], O_RDONLY);
-		p_line = params_line(fd);
-		parse_params(p_line, &vars);
-		m_line = map_line(fd);
-		check_other_char(m_line);
-		check_surroundings(m_line);
-		clean_map(m_line);
-		vars.map = m_line;
-		init(&vars);
-		start_game(&vars, vars.data);
-		mlx_loop(vars.mlx);
-		close(fd);
-		return (0);
-	}
-	else
-		error_msg();
 }

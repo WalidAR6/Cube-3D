@@ -6,11 +6,11 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 09:43:02 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/09 16:56:30 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/10 19:48:11 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cube.h"
+#include "../include/cube.h"
 
 void	drawing_all(t_win *vars)
 {

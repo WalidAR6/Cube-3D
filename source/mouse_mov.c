@@ -6,11 +6,11 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 16:52:18 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/03 18:59:42 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/10 19:48:11 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cube.h"
+#include "../include/cube.h"
 
 int start_mov(int x, int y, t_win *vars)
 {

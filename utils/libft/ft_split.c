@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:20:05 by waraissi          #+#    #+#             */
-/*   Updated: 2023/07/13 19:14:15 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/10 19:48:11 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "../../include/libft.h"
 
 static size_t	check_num_word(char const *s, char c)
 {

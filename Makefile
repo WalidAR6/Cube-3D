@@ -19,22 +19,23 @@ LIBFT_SRC = utils/libft/ft_atoi.c\
 
 GNL_SRC = utils/get_next_line/get_next_line.c
 
-SRC = src/cube.c\
-		src/start_game.c\
-		src/drawing.c\
-		src/movement.c\
-		src/key_hooks.c\
-		src/mlx_helping_tools.c\
-		src/ray_casting.c\
-		src/intersections.c\
-		src/game_component.c\
-		src/param_check.c\
-		src/param_value_check.c\
+SRC = source/cube.c\
+		source/start_game.c\
+		source/drawing.c\
+		source/movement.c\
+		source/key_hooks.c\
+		source/mlx_helping_tools.c\
+		source/ray_casting.c\
+		source/intersections.c\
+		source/game_component.c\
+		source/param_check.c\
+		source/param_value_check.c\
 		utils/parsing_utils.c\
-		src/mini_map.c\
-		src/mouse_mov.c\
-		src/init_val.c \
-		src/painting.c
+		source/mini_map.c\
+		source/mouse_mov.c\
+		source/init_val.c \
+		source/painting.c \
+		source/map_check.c \
 
 LIBFT_OBJ = $(LIBFT_SRC:.c=.o)
 
@@ -44,7 +45,7 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-%.o: %.c inc/cube.h inc/get_next_line.h inc/libft.h
+%.o: %.c include/cube.h include/get_next_line.h include/libft.h
 	@$(CC) $(FLAGS) -Imlx -c $< -o $@
 
 $(NAME): $(OBJ) $(GNL_OBJ) $(LIBFT_OBJ)

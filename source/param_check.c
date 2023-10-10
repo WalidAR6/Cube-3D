@@ -6,11 +6,11 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:43:36 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/10 16:55:16 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/10 19:48:11 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cube.h"
+#include "../include/cube.h"
 
 void	check_duplicate(char **param)
 {

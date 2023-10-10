@@ -6,11 +6,36 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:44:24 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/08 23:41:49 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/10 21:06:48 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cube.h"
+#include "../include/cube.h"
+
+void	init_params(t_win *vars)
+{
+	vars->f_color = -1;
+	vars->c_color = -1;
+	vars->walls = malloc(sizeof(t_walls));
+	vars->walls->east = malloc(sizeof(t_w_info));
+	vars->walls->west = malloc(sizeof(t_w_info));
+	vars->walls->north = malloc(sizeof(t_w_info));
+	vars->walls->south = malloc(sizeof(t_w_info));
+	if (!vars->walls || !vars->walls->east || !vars->walls->west
+		|| !vars->walls->north || !vars->walls->south)
+		exit(0);
+}
+
+char	**parsing(t_win *vars, int fd, char **p_line, char **m_line)
+{
+	p_line = params_line(fd);
+	parse_params(p_line, vars);
+	m_line = map_line(fd);
+	check_other_char(m_line);
+	check_surroundings(m_line);
+	clean_map(m_line);
+	return (m_line);
+}
 
 void	ft_freedbl(char **str)
 {

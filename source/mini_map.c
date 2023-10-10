@@ -6,11 +6,11 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 23:01:06 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/10 17:05:34 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/10 20:11:39 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cube.h"
+#include "../include/cube.h"
 
 int     check_map_width(t_win *vars, double x, double y)
 {
@@ -38,11 +38,11 @@ void    draw_mini_map(t_win *vars, t_m_map *m_map)
         while (j < (12 * MAP_WIDTH) / 100)
         {
             if (x < 0 || y < 0 || (int)y / 50 > get_map_height(vars) || !check_map_width(vars, x, y))
-                my_mlx_pixel_put(vars->data, i, j, 0x323232);
+                pixel_put(vars->data, i, j, 0x323232);
             else if (vars->map[(int)y / 50][(int)x / 50] == '1' || vars->map[(int)y / 50][(int)x / 50] == ' ')            
-                my_mlx_pixel_put(vars->data, i, j, 4335);
+                pixel_put(vars->data, i, j, 4335);
             else
-                my_mlx_pixel_put(vars->data, i, j, GROUND_COLOR);
+                pixel_put(vars->data, i, j, GROUND_COLOR);
             j++;
             x -= 2;
         }

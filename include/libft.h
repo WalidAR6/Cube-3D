@@ -6,14 +6,14 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:17:59 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/08 20:01:41 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/10 20:49:36 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include "cube.h"
+#include "cube.h"
 
 char	**ft_split(char *s, char c);
 int		ft_atoi(const char *str);

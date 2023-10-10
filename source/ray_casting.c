@@ -6,11 +6,11 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 10:17:00 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/09 16:26:54 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/10 20:58:09 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cube.h"
+#include "../include/cube.h"
 
 int get_map_height(t_win *vars)
 {
@@ -85,7 +85,7 @@ double	intersection_with_horizontal(t_win *vars, double i, double angle)
 	first_horizontal_intersection(vars, t, i);
 	yh = vars->r_cast->y_h;
 	xh = vars->r_cast->x_h;
-	while (true)
+	while (TRUE)
 	{
 		if (vars->r_cast->x_h < 0 || vars->r_cast->y_h < 0
 			|| vars->r_cast->y_h / 50 > get_map_height(vars)
@@ -114,7 +114,7 @@ double	intersection_with_vertical(t_win *vars, double i, double angle)
 	first_vertical_intersection(vars, t, i);
 	yv = vars->r_cast->y_v;
 	xv = vars->r_cast->x_v;
-	while (true)
+	while (TRUE)
 	{
 		if (vars->r_cast->x_v < 0 || vars->r_cast->y_v < 0
 			|| vars->r_cast->y_v / 50 > get_map_height(vars)
@@ -143,7 +143,6 @@ void	start_ray_casting(t_win *vars)
 	double	angle;
 	double	r_angle;
 	int h = 0;
-	int v = 0;
 		
 	i = 0;
 	angle = (double)FOV / MAP_WIDTH;
@@ -159,15 +158,13 @@ void	start_ray_casting(t_win *vars)
 		{
 			vars->dis = cos((vars->player->view_angle - r_angle) * PI / 180) * h_i;
 			h = 1;
-			v = 0;
 		}
 		else
 		{
 			vars->dis = cos((vars->player->view_angle - r_angle) * PI / 180) * v_i;
 			h = 0;
-			v = 1;
 		}
-		draw_walls(vars, win_pix, r_angle, h, v);
+		draw_walls(vars, win_pix, r_angle, h);
 		i += angle;
 		n += angle;
 		win_pix += 1;
