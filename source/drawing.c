@@ -6,13 +6,13 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 10:52:04 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/12 00:00:23 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/12 00:15:28 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cube.h"
 
-void	ea_we_walls(t_win *vars, double i, double angle, double slice_lenght)
+void	draw_ea_we(t_win *vars, double i, double angle, double slice_lenght)
 {
 	int		offx;
 
@@ -30,7 +30,7 @@ void	ea_we_walls(t_win *vars, double i, double angle, double slice_lenght)
 	}
 }
 
-void	no_so_walls(t_win *vars, double i, double angle, double slice_lenght)
+void	draw_no_so(t_win *vars, double i, double angle, double slice_lenght)
 {
 	int		offx;
 
@@ -54,9 +54,9 @@ void	draw_walls(t_win *vars, double i, double angle, int h)
 
 	slice_lenght = 50 / vars->dis * vars->dis_p_plan;
 	if (h == 0)
-		ea_we_walls(vars, i, angle, slice_lenght);
+		draw_ea_we(vars, i, angle, slice_lenght);
 	else
-		no_so_walls(vars, i, angle, slice_lenght);
+		draw_no_so(vars, i, angle, slice_lenght);
 }
 
 void	draw_square(t_win *vars, int color)
