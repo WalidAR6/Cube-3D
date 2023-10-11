@@ -6,25 +6,11 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:44:24 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/10 21:06:48 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/12 00:12:33 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cube.h"
-
-void	init_params(t_win *vars)
-{
-	vars->f_color = -1;
-	vars->c_color = -1;
-	vars->walls = malloc(sizeof(t_walls));
-	vars->walls->east = malloc(sizeof(t_w_info));
-	vars->walls->west = malloc(sizeof(t_w_info));
-	vars->walls->north = malloc(sizeof(t_w_info));
-	vars->walls->south = malloc(sizeof(t_w_info));
-	if (!vars->walls || !vars->walls->east || !vars->walls->west
-		|| !vars->walls->north || !vars->walls->south)
-		exit(0);
-}
 
 char	**parsing(t_win *vars, int fd, char **p_line, char **m_line)
 {
@@ -101,4 +87,41 @@ int	white_spaces(char c)
 	if (c == ' ' || (c >= 9 && c <= 13))
 		return (0);
 	return (1);
+}
+
+unsigned int	get_pixel(t_data *data, int x, int y)
+{
+	char	*texture;
+
+	texture = data->addr + (y * data->line_length + x * (data->bits_per_pixel
+				/ 8));
+	return (*(unsigned int *)texture);
+}
+
+int	set_colors(int r, int g, int b)
+{
+	int	color;
+
+	color = 0;
+	color += r << 16;
+	color += g << 8;
+	color += b;
+	return (color);
+}
+
+void	count_commas(char *value)
+{
+	int	i;
+	int	n;
+
+	i = 0;
+	n = 0;
+	while (value[i])
+	{
+		if (value[i] == ',')
+			n++;
+		i++;
+	}
+	if (n != 2)
+		error_msg();
 }

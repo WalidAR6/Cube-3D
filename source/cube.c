@@ -6,11 +6,20 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:04 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/10 21:04:46 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/11 19:05:33 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cube.h"
+
+void	map_argument_check(char *av)
+{
+	if (av[ft_strlen(av) - 1] != 'b'
+		|| av[ft_strlen(av) - 2] != 'u'
+		|| av[ft_strlen(av) - 3] != 'c'
+		|| av[ft_strlen(av) - 4] != '.')
+		error_msg();
+}
 
 void f()
 {
@@ -29,11 +38,7 @@ int	main(int ac, char **av)
 	m_line = NULL;
 	if (ac == 2)
 	{
-		if (av[1][ft_strlen(av[1]) - 1] != 'b'
-			|| av[1][ft_strlen(av[1]) - 2] != 'u'
-			|| av[1][ft_strlen(av[1]) - 3] != 'c'
-			|| av[1][ft_strlen(av[1]) - 4] != '.')
-			error_msg();
+		map_argument_check(av[1]);
 		init_params(&vars);
 		fd = open(av[1], O_RDONLY);
 		if (fd == -1)

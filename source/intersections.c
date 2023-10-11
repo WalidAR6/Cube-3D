@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 11:03:49 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/10 19:48:11 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/12 00:03:08 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	modify_angle(double *angle)
 
 int	looking_direction(t_win *vars, double i)
 {
-	double angle;
+	double	angle;
 
 	angle = vars->player->view_angle + i;
 	if (angle >= 360)
@@ -36,7 +36,7 @@ int	looking_direction(t_win *vars, double i)
 
 int	looking_direction_2(t_win *vars, double i)
 {
-	double angle;
+	double	angle;
 
 	angle = vars->player->view_angle + i;
 	if (angle >= 360)
@@ -62,8 +62,8 @@ void	first_horizontal_intersection(t_win *vars, double t, double i)
 		vars->r_cast->x_inc = vars->r_cast->y_inc / t;
 		vars->r_cast->y_h = floor(vars->player->y_player / 50) * 50 - 0.0001;
 	}
-	vars->r_cast->x_h = vars->player->x_player
-		+ (vars->r_cast->y_h - vars->player->y_player) / t;
+	vars->r_cast->x_h = vars->player->x_player + (vars->r_cast->y_h
+			- vars->player->y_player) / t;
 }
 
 void	first_vertical_intersection(t_win *vars, double t, double i)
@@ -80,6 +80,6 @@ void	first_vertical_intersection(t_win *vars, double t, double i)
 		vars->r_cast->y_inc = vars->r_cast->x_inc * t;
 		vars->r_cast->x_v = floor(vars->player->x_player / 50) * 50 - 0.0001;
 	}
-	vars->r_cast->y_v = vars->player->y_player
-		+ (vars->r_cast->x_v - vars->player->x_player) * t;
+	vars->r_cast->y_v = vars->player->y_player + (vars->r_cast->x_v
+			- vars->player->x_player) * t;
 }

@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 20:01:49 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/10 20:02:12 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/12 00:03:38 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	check_other_char(char **m_line)
 	}
 	if (n == 0)
 		error_msg();
-} 
+}
 
 char	**map_line(int fd)
 {
@@ -94,7 +94,7 @@ char	**map_line(int fd)
 	return (m_line);
 }
 
-void clean_map(char **m_line)
+void	clean_map(char **m_line)
 {
 	int	i;
 	int	j;

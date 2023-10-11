@@ -6,45 +6,17 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:46:57 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/10 19:48:11 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/12 00:11:52 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cube.h"
 
-void	count_commas(char *value)
-{
-	int	i;
-	int	n;
-
-	i = 0;
-	n = 0;
-	while (value[i])
-	{
-		if (value[i] == ',')
-			n++;
-		i++;
-	}
-	if (n != 2)
-		error_msg();
-}
-
-int	set_colors(int r, int g, int b)
-{
-	int color;
-	
-	color  = 0;
-	color += r << 16;
-	color += g << 8;
-	color += b;
-	return (color);
-}
-
 void	check_fc_value(char *value, t_win *vars, int n)
 {
 	char	**tmp;
 	int		i;
-	
+
 	count_commas(value);
 	tmp = ft_split(value, ',');
 	i = 0;
@@ -58,9 +30,11 @@ void	check_fc_value(char *value, t_win *vars, int n)
 		i++;
 	}
 	if (n == 1)
-		vars->f_color = set_colors(ft_atoi(tmp[0]), ft_atoi(tmp[1]), ft_atoi(tmp[2]));
+		vars->f_color = set_colors(ft_atoi(tmp[0]), ft_atoi(tmp[1]),
+				ft_atoi(tmp[2]));
 	else
-		vars->c_color = set_colors(ft_atoi(tmp[0]), ft_atoi(tmp[1]), ft_atoi(tmp[2]));
+		vars->c_color = set_colors(ft_atoi(tmp[0]), ft_atoi(tmp[1]),
+				ft_atoi(tmp[2]));
 	ft_freedbl(tmp);
 }
 
@@ -76,7 +50,7 @@ void	check_direc_value(char *ref, char *value, t_win *vars)
 		|| value[ft_strlen(value) - 3] != 'x'
 		|| value[ft_strlen(value) - 4] != '.')
 	{
-		close (fd);
+		close(fd);
 		error_msg();
 	}
 	if (ref[0] == 'N' && ref[1] == 'O')
@@ -87,8 +61,7 @@ void	check_direc_value(char *ref, char *value, t_win *vars)
 		vars->walls->west->path = ft_strdup(value);
 	else if (ref[0] == 'E' && ref[1] == 'A')
 		vars->walls->east->path = ft_strdup(value);
-	close (fd);
-	
+	close(fd);
 }
 
 void	check_param_value(char *ref, char *value, int n, t_win *vars)

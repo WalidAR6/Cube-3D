@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 09:43:02 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/10 19:48:11 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/12 00:12:15 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,11 @@ void	mlx_hooks(t_win *vars)
 	mlx_hook(vars->mlx_win, 17, 0, quit_game, vars);
 }
 
-void	start_game(t_win *vars, t_data *data)	
+void	start_game(t_win *vars, t_data *data)
 {
 	data->img = mlx_new_image(vars->mlx, MAP_WIDTH, MAP_HEIGHT);
 	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel,
-										&data->line_length,
-										&data->endian);
+			&data->line_length, &data->endian);
 	mlx_hooks(vars);
 	mlx_loop_hook(vars->mlx, hooks, vars);
 	mlx_put_image_to_window(vars->mlx, vars->mlx_win, data->img, 0, 0);

@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/10 20:58:58 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/12 00:13:27 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+
 # include "get_next_line.h"
 # include "libft.h"
 
@@ -170,7 +171,8 @@ int					check_map_width(t_win *vars, double x, double y);
 int					player_view_direction(char **map);
 
 /****PARSING****/
-char	**parsing(t_win *vars, int fd, char **p_line, char **m_line);
+char				**parsing(t_win *vars, int fd, char **p_line,
+						char **m_line);
 /*params*/
 void				init_params(t_win *vars);
 char				**params_line(int fd);
@@ -199,10 +201,14 @@ int					set_colors(int r, int g, int b);
 void				init_textures(t_win *vars);
 unsigned int		**pixels_color(t_w_info *wall);
 void				init_colors(t_win *vars);
-void				paint_wall(t_win *vars, int offx, double start_pos, double end_pos, double slice_lenght, t_w_info *wall, double angle);
-void	draw_celling(t_win *vars);
-void	draw_floor(t_win *vars);
+void				paint_wall(t_win *vars, t_w_info *wall, int offx,
+						double slice_lenght, double angle);
+void				draw_celling(t_win *vars);
+void				draw_floor(t_win *vars);
 
-
+unsigned int		get_pixel(t_data *data, int x, int y);
+void				paint_celling(t_win *vars);
+void				paint_floor(t_win *vars);
+void				count_commas(char *value);
 
 #endif

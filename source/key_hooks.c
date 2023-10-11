@@ -6,17 +6,17 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 11:28:14 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/10 19:48:11 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/12 00:03:23 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cube.h"
 
-int		key_hook(int keycode, t_win *vars)
+int	key_hook(int keycode, t_win *vars)
 {
 	if (keycode == KEY_DOWN || keycode == ARROW_DOWN)
 		vars->forw_back = -1;
-	if (keycode == KEY_UP || keycode == ARROW_UP)	
+	if (keycode == KEY_UP || keycode == ARROW_UP)
 		vars->forw_back = 1;
 	if (keycode == KEY_RIGHT)
 		vars->left_right = 1;
@@ -34,11 +34,11 @@ int		key_hook(int keycode, t_win *vars)
 	return (0);
 }
 
-int		key_release(int keycode, t_win *vars)
+int	key_release(int keycode, t_win *vars)
 {
 	if (keycode == KEY_DOWN || keycode == ARROW_DOWN)
 		vars->forw_back = 0;
-	if (keycode == KEY_UP || keycode == ARROW_UP)	
+	if (keycode == KEY_UP || keycode == ARROW_UP)
 		vars->forw_back = 0;
 	if (keycode == KEY_RIGHT)
 		vars->left_right = 0;
@@ -51,7 +51,7 @@ int		key_release(int keycode, t_win *vars)
 	return (0);
 }
 
-int		quit_game(int keycode, t_win *vars)
+int	quit_game(int keycode, t_win *vars)
 {
 	if (keycode == KEY_ESC)
 	{
@@ -84,14 +84,14 @@ void	move_player(t_win *vars)
 	// modify_angle(&vars->player->view_angle);  //this should be in bonus part
 }
 
-int		hooks(t_win *vars)
+int	hooks(t_win *vars)
 {
 	mlx_destroy_image(vars->mlx, vars->data->img);
 	vars->data->img = mlx_new_image(vars->mlx, MAP_WIDTH, MAP_HEIGHT);
 	vars->data->addr = mlx_get_data_addr(vars->data->img,
-											&vars->data->bits_per_pixel,
-											&vars->data->line_length,
-											&vars->data->endian);
+			&vars->data->bits_per_pixel,
+			&vars->data->line_length,
+			&vars->data->endian);
 	drawing_all(vars);
 	move_player(vars);
 	mlx_put_image_to_window(vars->mlx, vars->mlx_win, vars->data->img, 0, 0);

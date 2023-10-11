@@ -6,51 +6,68 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 02:23:10 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/10 19:48:11 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/11 23:28:24 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cube.h"
 
-void	init_textures2(t_win *vars)
+void	paint_wall(t_win *vars, t_w_info *wall, int offx, double slice_lenght, double angle)
 {
-	vars->walls->east->img_data.addr = mlx_get_data_addr(vars->walls->east->img_data.img,
-			&vars->walls->east->img_data.bits_per_pixel,
-			&vars->walls->east->img_data.line_length,
-			&vars->walls->east->img_data.endian);
-	vars->walls->west->img_data.addr = mlx_get_data_addr(vars->walls->west->img_data.img,
-			&vars->walls->west->img_data.bits_per_pixel,
-			&vars->walls->west->img_data.line_length,
-			&vars->walls->west->img_data.endian);
-	vars->walls->north->img_data.addr = mlx_get_data_addr(vars->walls->north->img_data.img,
-			&vars->walls->north->img_data.bits_per_pixel,
-			&vars->walls->north->img_data.line_length,
-			&vars->walls->north->img_data.endian);
-	vars->walls->south->img_data.addr = mlx_get_data_addr(vars->walls->south->img_data.img,
-			&vars->walls->south->img_data.bits_per_pixel,
-			&vars->walls->south->img_data.line_length,
-			&vars->walls->south->img_data.endian);
-	if (!vars->walls->east->img_data.addr || !vars->walls->west->img_data.addr
-		|| !vars->walls->north->img_data.addr || !vars->walls->south->img_data.addr)
-		error_msg();
+	int		y;
+	int		offy;
+	int		distance_from_top;
+	double	start_pos;
+	double	end_pos;
+
+	start_pos = (MAP_HEIGHT / 2) - (slice_lenght / 2);
+	if (start_pos < 0)
+		start_pos = 0;
+	end_pos = (MAP_HEIGHT / 2) + (slice_lenght / 2);
+	if (end_pos > MAP_HEIGHT)
+		end_pos = MAP_HEIGHT;
+	y = start_pos;
+	while (y < end_pos)
+	{
+		distance_from_top = y + (slice_lenght / 2) - (MAP_HEIGHT / 2);
+		offy = distance_from_top * (double)wall->height / slice_lenght;
+		pixel_put(vars->data, angle, y, get_pixel(&wall->img_data, offx, offy));
+		y++;
+	}
 }
 
-void	init_textures(t_win *vars)
+void	paint_celling(t_win *vars)
 {
-	vars->walls->east->img_data.img = mlx_xpm_file_to_image(vars->mlx,
-			vars->walls->east->path, &vars->walls->east->width,
-			&vars->walls->east->height);
-	vars->walls->west->img_data.img = mlx_xpm_file_to_image(vars->mlx,
-			vars->walls->west->path, &vars->walls->west->width,
-			&vars->walls->west->height);
-	vars->walls->north->img_data.img = mlx_xpm_file_to_image(vars->mlx,
-			vars->walls->north->path, &vars->walls->north->width,
-			&vars->walls->north->height);
-	vars->walls->south->img_data.img = mlx_xpm_file_to_image(vars->mlx,
-			vars->walls->south->path, &vars->walls->south->width,
-			&vars->walls->south->height);
-	if (!vars->walls->east->img_data.img || !vars->walls->west->img_data.img
-		|| !vars->walls->north->img_data.img || !vars->walls->south->img_data.img)
-		error_msg();
-	init_textures2(vars);
+	double	i;
+	double	j;
+
+	i = 0;
+	while (i < MAP_HEIGHT / 2)
+	{
+		j = 0;
+		while (j < MAP_WIDTH)
+		{
+			pixel_put(vars->data, j, i, vars->c_color);
+			j++;
+		}
+		i++;
+	}
+}
+
+void	paint_floor(t_win *vars)
+{
+	double	i;
+	double	j;
+
+	i = MAP_HEIGHT / 2;
+	while (i < MAP_HEIGHT)
+	{
+		j = 0;
+		while (j < MAP_WIDTH)
+		{
+			pixel_put(vars->data, j, i, vars->f_color);
+			j++;
+		}
+		i++;
+	}
 }
