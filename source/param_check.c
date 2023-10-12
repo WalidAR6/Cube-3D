@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   param_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
+/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:43:36 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/10 19:48:11 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/12 23:12:21 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,8 @@ char	**params_line(int fd)
 	tmp_line = NULL;
 	while (1)
 	{
-		tmp_line = get_next_line(fd);
+		if (n < 6)
+			tmp_line = get_next_line(fd);
 		if (tmp_line == NULL || n == 6)
 			break ;
 		if (check_empty_line(tmp_line) == 1)

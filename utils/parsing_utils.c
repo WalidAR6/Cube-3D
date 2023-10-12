@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
+/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:44:24 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/12 00:12:33 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/12 23:13:24 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,24 @@
 
 char	**parsing(t_win *vars, int fd, char **p_line, char **m_line)
 {
+	int i = 0;
+	int j = 0;
+
 	p_line = params_line(fd);
 	parse_params(p_line, vars);
 	m_line = map_line(fd);
 	check_other_char(m_line);
+	while (m_line[i])
+	{
+		j = 0;
+		while (m_line[i][j])
+		{
+			printf("mline[%d][%d] = %c\n", i, j, m_line[i][j]);
+			j++;
+		}
+		puts("");
+		i++;
+	}
 	check_surroundings(m_line);
 	clean_map(m_line);
 	return (m_line);
