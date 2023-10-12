@@ -29,6 +29,8 @@ SRC = source/cube.c\
 		source/param_check.c\
 		source/param_value_check.c\
 		utils/parsing_utils.c\
+		utils/parsing_utils1.c\
+		utils/cube_utils.c\
 		source/mouse_mov.c\
 		source/init_val.c \
 		source/painting.c \

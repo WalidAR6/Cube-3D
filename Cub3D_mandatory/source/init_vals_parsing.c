@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_vals_parsing.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
+/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:24:28 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/12 16:25:07 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/13 00:45:21 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	init_params(t_win *vars)
 	vars->walls->south = malloc(sizeof(t_w_info));
 	if (!vars->walls || !vars->walls->east || !vars->walls->west
 		|| !vars->walls->north || !vars->walls->south)
-		exit(0);
+		error_msg();
 }
 
 void	init_textures2(t_win *vars)

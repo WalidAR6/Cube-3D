@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   param_value_check.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
+/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:46:57 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/12 00:11:52 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/13 00:08:13 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,6 @@ void	check_direc_value(char *ref, char *value, t_win *vars)
 	fd = open(value, O_RDONLY);
 	if (fd == -1)
 		error_msg();
-	else if (value[ft_strlen(value) - 1] != 'm'
-		|| value[ft_strlen(value) - 2] != 'p'
-		|| value[ft_strlen(value) - 3] != 'x'
-		|| value[ft_strlen(value) - 4] != '.')
-	{
-		close(fd);
-		error_msg();
-	}
 	if (ref[0] == 'N' && ref[1] == 'O')
 		vars->walls->north->path = ft_strdup(value);
 	else if (ref[0] == 'S' && ref[1] == 'O')

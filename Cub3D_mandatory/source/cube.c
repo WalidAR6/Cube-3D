@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
+/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:04 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/12 17:40:16 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/13 00:46:33 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	main(int ac, char **av)
 
 	p_line = NULL;
 	m_line = NULL;
+	atexit(f);
 	if (ac == 2)
 	{
 		map_argument_check(av[1]);
