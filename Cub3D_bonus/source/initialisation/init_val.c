@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:48:21 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/13 23:20:09 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/13 23:33:55 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,17 @@ void	init_player(char **map, t_player *vars)
 	vars->view_angle = player_view_direction(map);
 }
 
+void	init_m_map(t_win *vars, t_m_map *m_map)
+{
+	m_map->start_x = 5;
+	m_map->start_y = 5;
+	m_map->m_angle = 0;
+	m_map->r_rl = 0;
+	m_map->prev = 0;
+	m_map->flag = 0;
+	m_map->data = vars;
+}
+
 void	init_r_cast(t_win *vars)
 {
 	vars->r_cast->x_inc = 0;
@@ -26,6 +37,21 @@ void	init_r_cast(t_win *vars)
 	vars->r_cast->y_h = 0;
 	vars->r_cast->x_v = 0;
 	vars->r_cast->y_v = 0;
+}
+
+void	init2(t_win *vars)
+{
+	vars->data = malloc(sizeof(t_data));
+	vars->player = malloc(sizeof(t_player));
+	vars->r_cast = malloc(sizeof(t_ray_cast));
+	vars->m_map = malloc(sizeof(t_m_map));
+	if (!vars->mlx_win || !vars->player || !vars->data
+		|| !vars->r_cast || !vars->walls || !vars->m_map)
+		error_msg();
+	init_player(vars->map, vars->player);
+	init_r_cast(vars);
+	init_m_map(vars, vars->m_map);
+	init_textures(vars);
 }
 
 void	init(t_win *vars)
@@ -46,13 +72,5 @@ void	init(t_win *vars)
 	vars->n_angle = 0;
 	vars->r_angle = 0;
 	vars->dis_p_plan = (vars->map_width / 2) / tan(30 * PI / 180);
-	vars->data = malloc(sizeof(t_data));
-	vars->player = malloc(sizeof(t_player));
-	vars->r_cast = malloc(sizeof(t_ray_cast));
-	if (!vars->mlx_win || !vars->player || !vars->data
-		|| !vars->r_cast || !vars->walls)
-		error_msg();
-	init_player(vars->map, vars->player);
-	init_r_cast(vars);
-	init_textures(vars);
+	init2(vars);
 }

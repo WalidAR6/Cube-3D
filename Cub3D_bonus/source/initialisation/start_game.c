@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 09:43:02 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/13 23:19:43 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/13 23:29:46 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ void	drawing_all(t_win *vars)
 {
 	game_component(vars);
 	start_ray_casting(vars);
+	draw_mini_map(vars, vars->m_map);
+	draw_square(vars, 0x0);
+	draw_line(vars, vars->data);
 }
 
 void	mlx_hooks(t_win *vars)
@@ -23,6 +26,7 @@ void	mlx_hooks(t_win *vars)
 	mlx_hook(vars->mlx_win, 2, 0, key_hook, vars);
 	mlx_hook(vars->mlx_win, 3, 0, key_release, vars);
 	mlx_hook(vars->mlx_win, 17, 0, quit_game, vars);
+	mlx_hook(vars->mlx_win, 6, 0, start_mov, vars);
 }
 
 void	start_game(t_win *vars, t_data *data)
