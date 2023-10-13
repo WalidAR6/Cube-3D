@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/13 00:26:58 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/13 03:31:18 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -218,4 +218,6 @@ void				count_commas(char *value);
 int					is_horizental(t_win *vars, double h_i,
 						double v_i, double n_angle);
 int					check_map_width(t_win *vars, double x, double y);
+int					surround(char c);
+
 #endif

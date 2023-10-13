@@ -15,16 +15,17 @@ LIBFT_SRC = utils/libft/ft_atoi.c\
 			utils/libft/ft_strjoin_gnl.c\
 			utils/libft/ft_substr.c\
 			utils/libft/ft_strcmp.c\
-			utils/libft/ft_isdigit.c 
+			utils/libft/ft_isdigit.c\
+			utils/libft/ft_strchr.c
 
 GNL_SRC = utils/get_next_line/get_next_line.c
 
 SRC = source/cube.c\
 		source/parsing/param_check.c\
 		source/parsing/param_value_check.c\
-		source/parsing/map_check.c \
-		source/initialisation/init_vals_parsing.c \
-		source/initialisation/init_val.c \
+		source/parsing/map_check.c\
+		source/initialisation/init_vals_parsing.c\
+		source/initialisation/init_val.c\
 		source/initialisation/start_game.c\
 		source/raycasting/ray_casting.c\
 		source/raycasting/movement.c\
@@ -32,11 +33,11 @@ SRC = source/cube.c\
 		source/raycasting/intersections.c\
 		source/draw_paint/drawing.c\
 		source/draw_paint/game_component.c\
-		source/draw_paint/painting.c \
+		source/draw_paint/painting.c\
 		utils/parsing_utils.c\
 		utils/parsing_utils1.c\
 		utils/cube_utils.c\
-		utils/mlx_helping_tools.c\
+		utils/mlx_helping_tools.c
 
 LIBFT_OBJ = $(LIBFT_SRC:.c=.o)
 

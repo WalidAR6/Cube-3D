@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:48:21 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/13 03:11:07 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/13 03:20:03 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void	init(t_win *vars)
 	vars->data = malloc(sizeof(t_data));
 	vars->player = malloc(sizeof(t_player));
 	vars->r_cast = malloc(sizeof(t_ray_cast));
-	if (!vars->mlx_win || !vars->player || !vars->data || !vars->r_cast || !vars->walls)
+	if (!vars->mlx_win || !vars->player || !vars->data
+		|| !vars->r_cast || !vars->walls)
 		error_msg();
 	init_player(vars->map, vars->player);
 	init_r_cast(vars);

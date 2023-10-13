@@ -6,21 +6,12 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 20:01:49 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/13 03:03:06 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/13 03:30:19 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cube.h"
 
-int	check_surr1(char c)
-{
-	if (c != 'N'
-		&& c != 'S' && c != 'E'
-		&& c != 'W' && c != '1'
-		&& c != '0')
-		return (0);
-	return (1);
-}
 void	check_surroundings(char **m_line)
 {
 	int		i;
@@ -37,9 +28,11 @@ void	check_surroundings(char **m_line)
 				|| m_line[i][j] == 'W')
 			{
 				if (j == 0 || j == ft_strlen(m_line[i]) - 1 || i == 0
-					|| i == ft_doublen(m_line) - 1 || !check_surr1(m_line[i + 1][j])
-					|| !check_surr1(m_line[i - 1][j]) || !check_surr1(m_line[i][j + 1])
-					|| !check_surr1(m_line[i][j - 1]))
+					|| i == ft_doublen(m_line) - 1
+					|| !surround(m_line[i + 1][j])
+					|| !surround(m_line[i - 1][j])
+					|| !surround(m_line[i][j + 1])
+					|| !surround(m_line[i][j - 1]))
 					error_msg();
 			}
 			j++;
@@ -105,9 +98,10 @@ char	**map_line(int fd)
 		tmp_line = get_next_line(fd);
 		if (tmp_line == NULL)
 			break ;
-		if((n == 1 && check_empty_line(tmp_line) == 0) || !check_tabulation(tmp_line))
+		if ((n == 1 && check_empty_line(tmp_line) == 0)
+			|| !check_tabulation(tmp_line))
 			error_msg();
-		if(strchr(tmp_line, '1'))
+		if (ft_strchr(tmp_line, '1'))
 			n = 1;
 		line = ft_strjoin(line, tmp_line);
 	}

@@ -15,7 +15,8 @@ LIBFT_SRC = utils/libft/ft_atoi.c\
 			utils/libft/ft_strjoin_gnl.c\
 			utils/libft/ft_substr.c\
 			utils/libft/ft_strcmp.c\
-			utils/libft/ft_isdigit.c 
+			utils/libft/ft_isdigit.c\
+			utils/libft/ft_strchr.c\
 
 GNL_SRC = utils/get_next_line/get_next_line.c
 
@@ -30,11 +31,11 @@ SRC = source/cube.c\
 		source/parsing/param_check.c\
 		source/parsing/param_value_check.c\
 		source/raycasting/mouse_mov.c\
-		source/initialisation/init_val.c \
-		source/draw_paint/painting.c \
-		source/parsing/map_check.c \
-		source/initialisation/init_vals_parsing.c \
-		source/draw_paint/mini_map.c \
+		source/initialisation/init_val.c\
+		source/draw_paint/painting.c\
+		source/parsing/map_check.c\
+		source/initialisation/init_vals_parsing.c\
+		source/draw_paint/mini_map.c\
 		utils/parsing_utils.c\
 		utils/parsing_utils1.c\
 		utils/cube_utils.c\
