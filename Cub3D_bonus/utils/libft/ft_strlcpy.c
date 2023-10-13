@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/13 18:21:27 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/13 00:59:03 by aharib           ###   ########.fr       */
+/*   Created: 2023/07/13 18:29:47 by waraissi          #+#    #+#             */
+/*   Updated: 2023/10/10 19:48:11 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-int	ft_atoi(const char *str)
+size_t	ft_strlcpy(char *dst, char *src, size_t n)
 {
-	int	i;
-	int	sign;
-	int	res;
+	size_t	i;
 
 	i = 0;
-	sign = 1;
-	res = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if (dst == NULL || n == 0)
+		return (ft_strlen(src));
+	while (src[i] && i < n - 1)
 	{
-		if (str[i] == '-')
-			sign = -sign;
+		dst[i] = src[i];
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + str[i++] - '0';
-		if (res > 255)
-			error_msg();
-	}
-	while (white_spaces(str[i++]) == 0)
-		if (str[i] != '\0')
-			error_msg();
-	return (res * sign);
+	dst[i] = '\0';
+	return (ft_strlen(src));
 }

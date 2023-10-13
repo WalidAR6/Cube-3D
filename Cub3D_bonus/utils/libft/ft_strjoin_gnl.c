@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin_gnl.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/13 18:21:27 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/13 00:59:03 by aharib           ###   ########.fr       */
+/*   Created: 2023/07/21 13:42:41 by waraissi          #+#    #+#             */
+/*   Updated: 2023/10/12 17:38:52 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-int	ft_atoi(const char *str)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
-	int	i;
-	int	sign;
-	int	res;
+	size_t	i;
+	size_t	j;
+	char	*p;
 
 	i = 0;
-	sign = 1;
-	res = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	j = 0;
+	if (!s2)
+		return (NULL);
+	p = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!p)
+		return (NULL);
+	while (s1[i])
 	{
-		if (str[i] == '-')
-			sign = -sign;
+		p[i] = s1[i];
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (s2[j])
 	{
-		res = res * 10 + str[i++] - '0';
-		if (res > 255)
-			error_msg();
+		p[i + j] = s2[j];
+		j++;
 	}
-	while (white_spaces(str[i++]) == 0)
-		if (str[i] != '\0')
-			error_msg();
-	return (res * sign);
+	p[i + j] = 0;
+	return (free(s1), s1 = NULL, p);
 }

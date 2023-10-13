@@ -1,4 +1,4 @@
-NAME = Cub3D
+NAME = Cub3D_Bonus
 
 FLAGS = -Wall -Wextra -Werror -Ofast
 
@@ -20,19 +20,21 @@ LIBFT_SRC = utils/libft/ft_atoi.c\
 GNL_SRC = utils/get_next_line/get_next_line.c
 
 SRC = source/cube.c\
-		source/parsing/param_check.c\
-		source/parsing/param_value_check.c\
-		source/parsing/map_check.c \
-		source/initialisation/init_vals_parsing.c \
-		source/initialisation/init_val.c \
 		source/initialisation/start_game.c\
-		source/raycasting/ray_casting.c\
+		source/draw_paint/drawing.c\
 		source/raycasting/movement.c\
 		source/raycasting/key_hooks.c\
+		source/raycasting/ray_casting.c\
 		source/raycasting/intersections.c\
-		source/draw_paint/drawing.c\
 		source/draw_paint/game_component.c\
+		source/parsing/param_check.c\
+		source/parsing/param_value_check.c\
+		source/raycasting/mouse_mov.c\
+		source/initialisation/init_val.c \
 		source/draw_paint/painting.c \
+		source/parsing/map_check.c \
+		source/initialisation/init_vals_parsing.c \
+		source/draw_paint/mini_map.c \
 		utils/parsing_utils.c\
 		utils/parsing_utils1.c\
 		utils/cube_utils.c\
