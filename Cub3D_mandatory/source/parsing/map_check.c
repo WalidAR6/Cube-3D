@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 20:01:49 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/13 03:19:45 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/13 04:05:52 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,8 @@ char	**map_line(int fd)
 		tmp_line = get_next_line(fd);
 		if (tmp_line == NULL)
 			break ;
-		if ((n == 1 && check_empty_line(tmp_line) == 0)
-			|| !check_tabulation(tmp_line))
+		if (n == 1 && (check_empty_line(tmp_line) == 0
+				|| !check_tabulation(tmp_line)))
 			error_msg();
 		if (ft_strchr(tmp_line, '1'))
 			n = 1;

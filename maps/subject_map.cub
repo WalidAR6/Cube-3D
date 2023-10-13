@@ -1,12 +1,21 @@
-NO ../textures/wolfenstein/grey_stone.xpm
+NO                        ../textures/wolfenstein/grey_stone.xpm
 WE ../textures/wolfenstein/red_brick.xpm
 EA ../textures/wolfenstein/red_brick.xpm
-C 91,97,100
+C         91,            97,100
 SO ../textures/wolfenstein/grey_stone.xpm
 F 33,35,36
 
+
+
+
+
+
+
+
+
+
                          111111111
-                        10000000001
+	                    10000000001
                         10000000001
                          100000001
 11111    111111111111111111000001
