@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:24:28 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/13 03:11:07 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/13 22:46:12 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	init_params(t_win *vars)
 {
+	vars->parse = malloc(sizeof(t_parse));
 	vars->f_color = -1;
 	vars->c_color = -1;
 	vars->walls = malloc(sizeof(t_walls));
@@ -74,7 +75,11 @@ void	init_textures(t_win *vars)
 			&vars->walls->south->height);
 	if (!vars->walls->east->img_data.img || !vars->walls->west->img_data.img
 		|| !vars->walls->north->img_data.img
-		|| !vars->walls->south->img_data.img)
+		|| !vars->walls->south->img_data.img || vars->walls->east->width > 64
+		|| vars->walls->west->width > 64 || vars->walls->north->width > 64
+		|| vars->walls->south->width > 64 || vars->walls->east->height > 64
+		|| vars->walls->west->height > 64 || vars->walls->north->height > 64
+		|| vars->walls->south->height > 64)
 		error_msg();
 	init_textures2(vars);
 }

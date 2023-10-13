@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 21:48:34 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/13 03:16:45 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/13 20:22:56 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,14 @@ int	surround(char c)
 		&& c != '0')
 		return (0);
 	return (1);
+}
+
+int	value_start(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (!white_spaces(str[i]))
+		i++;
+	return (i);
 }

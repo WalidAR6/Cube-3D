@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 10:48:21 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/13 03:20:03 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/13 23:09:44 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,11 @@ void	init_r_cast(t_win *vars)
 void	init(t_win *vars)
 {
 	vars->mlx = mlx_init();
-	vars->mlx_win = mlx_new_window(vars->mlx, MAP_WIDTH, MAP_HEIGHT, "Cub3D");
+	vars->map_height = 900;
+	vars->map_width = 1700;
+	vars->fov = 60;
+	vars->mlx_win = mlx_new_window(vars->mlx,
+			vars->map_width, vars->map_height, "Cub3D");
 	vars->forw_back = 0;
 	vars->left_right = 0;
 	vars->r_left_right = 0;
@@ -41,7 +45,7 @@ void	init(t_win *vars)
 	vars->angle = 0;
 	vars->n_angle = 0;
 	vars->r_angle = 0;
-	vars->dis_p_plan = (MAP_WIDTH / 2) / tan(30 * PI / 180);
+	vars->dis_p_plan = (vars->map_width / 2) / tan(30 * PI / 180);
 	vars->data = malloc(sizeof(t_data));
 	vars->player = malloc(sizeof(t_player));
 	vars->r_cast = malloc(sizeof(t_ray_cast));

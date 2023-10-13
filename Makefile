@@ -2,7 +2,7 @@ NAME = Cub3D
 
 BNAME = Cub3D_B
 
-FLAGS = -Wall -Wextra -Werror -Ofast
+FLAGS = -Wall -Wextra -Werror -Ofast 
 
 CC = cc
 

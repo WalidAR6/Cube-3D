@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 10:17:00 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/13 03:11:07 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/13 23:00:00 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ double	intersection_with_horizontal(t_win *vars, double i, double angle)
 	first_horizontal_intersection(vars, t, i);
 	yh = vars->r_cast->y_h;
 	xh = vars->r_cast->x_h;
-	while (TRUE)
+	while (1)
 	{
 		if (vars->r_cast->x_h < 0 || vars->r_cast->y_h < 0 || vars->r_cast->y_h
 			/ 50 > get_map_height(vars) || !check_map_width(vars,
@@ -98,7 +98,7 @@ double	intersection_with_vertical(t_win *vars, double i, double angle)
 	first_vertical_intersection(vars, t, i);
 	yv = vars->r_cast->y_v;
 	xv = vars->r_cast->x_v;
-	while (TRUE)
+	while (1)
 	{
 		if (vars->r_cast->x_v < 0 || vars->r_cast->y_v < 0 || vars->r_cast->y_v
 			/ 50 > get_map_height(vars) || !check_map_width(vars,
@@ -124,10 +124,10 @@ void	start_ray_casting(t_win *vars)
 	double	i;
 
 	i = 0;
-	vars->angle = (double)FOV / MAP_WIDTH;
+	vars->angle = (double)vars->fov / vars->map_width;
 	vars->n_angle = -30;
 	win_pix = vars->angle;
-	while (i < FOV)
+	while (i < vars->fov)
 	{
 		vars->r_angle = vars->player->view_angle + vars->n_angle;
 		modify_angle(&vars->r_angle);

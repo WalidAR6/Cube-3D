@@ -3,24 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:44:24 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/13 00:14:33 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/13 23:02:19 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cube.h"
 
-char	**parsing(t_win *vars, int fd, char **p_line, char **m_line)
+char	**parsing(t_win *vars, int fd)
 {
-	p_line = params_line(fd);
-	parse_params(p_line, vars);
-	m_line = map_line(fd);
-	check_other_char(m_line);
-	check_surroundings(m_line);
-	clean_map(m_line);
-	return (m_line);
+	vars->parse->p_line = params_line(fd);
+	parse_params(vars->parse->p_line, vars);
+	vars->parse->m_line = map_line(fd);
+	if (!check_tabulation(vars->parse->m_line))
+		error_msg();
+	check_other_char(vars->parse->m_line);
+	check_surroundings(vars->parse->m_line);
+	clean_map(vars->parse->m_line);
+	return (vars->parse->m_line);
 }
 
 void	ft_freedbl(char **str)

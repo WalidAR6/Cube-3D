@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 20:01:49 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/13 04:05:52 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/13 22:30:52 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,22 @@ void	check_surroundings(char **m_line)
 	}
 }
 
-int	check_tabulation(char *str)
+int	check_tabulation(char **str)
 {
 	int	i;
+	int	j;
 
 	i = 0;
+	j = 0;
 	while (str[i])
 	{
-		if (str[i] == '\t')
-			return (0);
+		j = 0;
+		while (str[i][j])
+		{
+			if (str[i][j] == '\t')
+				return (0);
+			j++;
+		}
 		i++;
 	}
 	return (1);
@@ -91,21 +98,22 @@ char	**map_line(int fd)
 	int		n;
 
 	n = 0;
-	line = ft_strdup("");
+	line = NULL;
 	tmp_line = NULL;
 	while (1)
 	{
 		tmp_line = get_next_line(fd);
 		if (tmp_line == NULL)
 			break ;
-		if (n == 1 && (check_empty_line(tmp_line) == 0
-				|| !check_tabulation(tmp_line)))
+		if (n == 1 && (check_empty_line(tmp_line) == 0))
 			error_msg();
 		if (ft_strchr(tmp_line, '1'))
 			n = 1;
 		line = ft_strjoin(line, tmp_line);
+		free(tmp_line);
 	}
 	m_line = ft_split(line, '\n');
+	free(line);
 	return (m_line);
 }
 

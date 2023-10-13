@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:14:38 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/13 03:16:28 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/13 23:00:13 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,6 @@
 # include "get_next_line.h"
 # include "libft.h"
 
-# define WALL_COLOR 0x01529B
-# define GROUND_COLOR 0xcccccc
-# define PLAYER_COLOR 0xff0000
-
-# define MAP_WIDTH 1700
-# define MAP_HEIGHT 900
-
 # define KEY_UP 13
 # define KEY_LEFT 0
 # define KEY_RIGHT 2
@@ -43,12 +36,6 @@
 # define KEY_ESC 53
 
 # define PI 3.14159265359
-
-# define TRUE 1
-# define FALSE 0
-
-# define REDIUS 5
-# define FOV 60
 
 typedef struct s_data
 {
@@ -112,6 +99,14 @@ typedef struct s_m_map
 	struct s_win	*data;
 }					t_m_map;
 
+typedef struct s_parse
+{
+	char		**p_line;
+	char		**m_line;
+	char		**ref;
+	char		**value;
+}				t_parse;
+
 typedef struct s_win
 {
 	void			*mlx;
@@ -123,12 +118,16 @@ typedef struct s_win
 	int				m_step;
 	int				c_color;
 	int				f_color;
+	int				map_height;
+	int				map_width;
+	int				fov;
 	double			dis;
 	double			dis_p_plan;
 	double			slice_lenght;
 	double			angle;
 	double			n_angle;
 	double			r_angle;
+	t_parse			*parse;
 	t_ray_cast		*r_cast;
 	t_data			*data;
 	t_player		*player;
@@ -176,8 +175,7 @@ int					check_map_width(t_win *vars, double x, double y);
 int					player_view_direction(char **map);
 int					wall_leak(t_win *vars, double i, double j);
 /****PARSING****/
-char				**parsing(t_win *vars, int fd, char **p_line,
-						char **m_line);
+char				**parsing(t_win *vars, int fd);
 /*params*/
 void				init_params(t_win *vars);
 char				**params_line(int fd);
@@ -219,4 +217,7 @@ int					is_horizental(t_win *vars, double h_i,
 						double v_i, double n_angle);
 int					check_map_width(t_win *vars, double x, double y);
 int					surround(char c);
+int					value_start(char *str);
+int					check_tabulation(char **str);
+
 #endif

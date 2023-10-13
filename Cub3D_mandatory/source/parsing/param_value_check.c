@@ -6,7 +6,7 @@
 /*   By: aharib <aharib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:46:57 by aharib            #+#    #+#             */
-/*   Updated: 2023/10/13 03:11:07 by aharib           ###   ########.fr       */
+/*   Updated: 2023/10/13 23:09:29 by aharib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ void	check_direc_value(char *ref, char *value, t_win *vars)
 	if (fd == -1)
 		error_msg();
 	if (ref[0] == 'N' && ref[1] == 'O')
-		vars->walls->north->path = ft_strdup(value);
+		vars->walls->north->path = value;
 	else if (ref[0] == 'S' && ref[1] == 'O')
-		vars->walls->south->path = ft_strdup(value);
+		vars->walls->south->path = value;
 	else if (ref[0] == 'W' && ref[1] == 'E')
-		vars->walls->west->path = ft_strdup(value);
+		vars->walls->west->path = value;
 	else if (ref[0] == 'E' && ref[1] == 'A')
-		vars->walls->east->path = ft_strdup(value);
+		vars->walls->east->path = value;
 	close(fd);
 }
 
